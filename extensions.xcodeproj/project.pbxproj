@@ -12,7 +12,8 @@
 		167708132003ADDA00044CD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167708112003ADDA00044CD5 /* Main.storyboard */; };
 		167708152003ADDA00044CD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167708142003ADDA00044CD5 /* Assets.xcassets */; };
 		167708182003ADDA00044CD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167708162003ADDA00044CD5 /* LaunchScreen.storyboard */; };
-		167708232003ADDA00044CD5 /* extensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167708222003ADDA00044CD5 /* extensionsTests.swift */; };
+		1677082E2003ADF500044CD5 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677082D2003ADF500044CD5 /* Int+Extension.swift */; };
+		167708302003AE0F00044CD5 /* Int+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677082F2003AE0F00044CD5 /* Int+ExtensionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +35,9 @@
 		167708172003ADDA00044CD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		167708192003ADDA00044CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1677081E2003ADDA00044CD5 /* extensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = extensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		167708222003ADDA00044CD5 /* extensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionsTests.swift; sourceTree = "<group>"; };
 		167708242003ADDA00044CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1677082D2003ADF500044CD5 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		1677082F2003AE0F00044CD5 /* Int+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+ExtensionTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				167708142003ADDA00044CD5 /* Assets.xcassets */,
 				167708162003ADDA00044CD5 /* LaunchScreen.storyboard */,
 				167708192003ADDA00044CD5 /* Info.plist */,
+				1677082D2003ADF500044CD5 /* Int+Extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -90,8 +93,8 @@
 		167708212003ADDA00044CD5 /* extensionsTests */ = {
 			isa = PBXGroup;
 			children = (
-				167708222003ADDA00044CD5 /* extensionsTests.swift */,
 				167708242003ADDA00044CD5 /* Info.plist */,
+				1677082F2003AE0F00044CD5 /* Int+ExtensionTests.swift */,
 			);
 			path = extensionsTests;
 			sourceTree = "<group>";
@@ -103,6 +106,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 167708272003ADDA00044CD5 /* Build configuration list for PBXNativeTarget "extensions" */;
 			buildPhases = (
+				167708312003AEEB00044CD5 /* Swift Lint */,
 				167708062003ADDA00044CD5 /* Sources */,
 				167708072003ADDA00044CD5 /* Frameworks */,
 				167708082003ADDA00044CD5 /* Resources */,
@@ -194,11 +198,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		167708312003AEEB00044CD5 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		167708062003ADDA00044CD5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1677082E2003ADF500044CD5 /* Int+Extension.swift in Sources */,
 				167708102003ADDA00044CD5 /* ViewController.swift in Sources */,
 				1677080E2003ADDA00044CD5 /* AppDelegate.swift in Sources */,
 			);
@@ -208,7 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				167708232003ADDA00044CD5 /* extensionsTests.swift in Sources */,
+				167708302003AE0F00044CD5 /* Int+ExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
