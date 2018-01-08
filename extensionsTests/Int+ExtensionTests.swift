@@ -29,4 +29,25 @@ class IntExtensionTests: XCTestCase {
         XCTAssertFalse(12345.isEven)
     }
 
+    func testFormattedStringWithComma() {
+        var num: Int
+        var str: String
+
+        num = 10
+        str = "10"
+        XCTAssertEqual(num.formattedStringWithComma, str)
+
+        num = 1000
+        str = "1,000"
+        XCTAssertEqual(num.formattedStringWithComma, str)
+
+        num = 56789
+        str = "56,789"
+        XCTAssertEqual(num.formattedStringWithComma, str)
+
+        num = 123456789
+        str = "123,456,789"
+        XCTAssertEqual(num.formattedStringWithComma, str)
+    }
+
 }

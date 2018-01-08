@@ -14,4 +14,16 @@ public extension Int {
         return self % 2 == 0
     }
 
+    var formattedStringWithComma: String {
+        return formattedString(style: .decimal, localeIdentifier: "ja_JP")
+    }
+
+    // MARK: - methods
+    private func formattedString(style: NumberFormatter.Style, localeIdentifier: String) -> String {
+        let formatter: NumberFormatter = NumberFormatter()
+        formatter.numberStyle = style
+        formatter.locale = Locale(identifier: localeIdentifier)
+        return formatter.string(from: self as NSNumber) ?? ""
+    }
+
 }
