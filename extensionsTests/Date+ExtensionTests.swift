@@ -59,4 +59,19 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date.string(format: format), expectedString)
     }
 
+    func testInit() {
+        var dateString, dateFormat: String
+        var date: Date?
+
+        dateString = "1970/01/01"
+        dateFormat = "yyyy/MM/dd"
+        date = Date.init(dateString: dateString, dateFormat: dateFormat)
+        XCTAssertEqual(date, Date.init(timeIntervalSince1970: 0))
+
+        dateString = "1970/01/01"
+        dateFormat = "MM/dd"
+        date = Date.init(dateString: dateString, dateFormat: dateFormat)
+        XCTAssertNil(date)
+    }
+
 }

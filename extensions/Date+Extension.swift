@@ -22,4 +22,13 @@ public extension Date {
         return formatter.string(from: self)
     }
 
+    init?(dateString: String, dateFormat: String = "") {
+        if let timezone: TimeZone = NSTimeZone.init(abbreviation: "UTC") as TimeZone? {
+            formatter.timeZone = timezone
+        }
+        formatter.dateFormat = dateFormat
+        guard let date: Date = formatter.date(from: dateString) else { return nil }
+        self = date
+    }
+
 }
