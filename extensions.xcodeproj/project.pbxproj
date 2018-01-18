@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16190868200CFC1500B61EEC /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16190867200CFC1500B61EEC /* Date+Extension.swift */; };
+		1619086A200CFC3800B61EEC /* Date+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16190869200CFC3800B61EEC /* Date+ExtensionTests.swift */; };
 		1677080E2003ADDA00044CD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677080D2003ADDA00044CD5 /* AppDelegate.swift */; };
 		167708102003ADDA00044CD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677080F2003ADDA00044CD5 /* ViewController.swift */; };
 		167708132003ADDA00044CD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167708112003ADDA00044CD5 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16190867200CFC1500B61EEC /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		16190869200CFC3800B61EEC /* Date+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ExtensionTests.swift"; sourceTree = "<group>"; };
 		1677080A2003ADDA00044CD5 /* extensions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = extensions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1677080D2003ADDA00044CD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1677080F2003ADDA00044CD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				167708162003ADDA00044CD5 /* LaunchScreen.storyboard */,
 				167708192003ADDA00044CD5 /* Info.plist */,
 				1677082D2003ADF500044CD5 /* Int+Extension.swift */,
+				16190867200CFC1500B61EEC /* Date+Extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 			children = (
 				167708242003ADDA00044CD5 /* Info.plist */,
 				1677082F2003AE0F00044CD5 /* Int+ExtensionTests.swift */,
+				16190869200CFC3800B61EEC /* Date+ExtensionTests.swift */,
 			);
 			path = extensionsTests;
 			sourceTree = "<group>";
@@ -221,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1677082E2003ADF500044CD5 /* Int+Extension.swift in Sources */,
+				16190868200CFC1500B61EEC /* Date+Extension.swift in Sources */,
 				167708102003ADDA00044CD5 /* ViewController.swift in Sources */,
 				1677080E2003ADDA00044CD5 /* AppDelegate.swift in Sources */,
 			);
@@ -231,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				167708302003AE0F00044CD5 /* Int+ExtensionTests.swift in Sources */,
+				1619086A200CFC3800B61EEC /* Date+ExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
