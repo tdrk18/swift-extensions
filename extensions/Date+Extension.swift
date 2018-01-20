@@ -41,4 +41,34 @@ public extension Date {
         return self.string(format: dateFormat)
     }
 
+    func userYMDString() -> String {
+        let dateFormat: String = "yyyy/M/d"
+        return self.string(format: dateFormat)
+    }
+
+    func userYMString() -> String {
+        let dateFormat: String = "yyyy/M"
+        return self.string(format: dateFormat)
+    }
+
+    func userMDString() -> String {
+        let dateFormat: String = "M/d"
+        return self.string(format: dateFormat)
+    }
+
+    func userYMDJPString() -> String {
+        let dateFormat: String = "yyyy年M月d日"
+        return self.string(format: dateFormat)
+    }
+
+    func userYMJPString() -> String {
+        let dateFormat: String = "yyyy年M月"
+        return self.string(format: dateFormat)
+    }
+
+    func userMDJPString() -> String {
+        let dateFormat: String = "M月d日"
+        return self.string(format: dateFormat)
+    }
+
 }

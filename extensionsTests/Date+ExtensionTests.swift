@@ -100,4 +100,82 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date.isoDateString(), expectedString)
     }
 
+    func testUserYMDString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "1970/1/1"
+        XCTAssertEqual(date.userYMDString(), expectedString)
+
+        expectedString = "1970/1/12"
+        date = Date.init(timeIntervalSince1970: 1000000)
+        XCTAssertEqual(date.userYMDString(), expectedString)
+    }
+
+    func testUserYMString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "1970/1"
+        XCTAssertEqual(date.userYMString(), expectedString)
+
+        expectedString = "1970/1"
+        date = Date.init(timeIntervalSince1970: 1000000)
+        XCTAssertEqual(date.userYMString(), expectedString)
+    }
+
+    func testUserMDString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "1/1"
+        XCTAssertEqual(date.userMDString(), expectedString)
+
+        expectedString = "1/12"
+        date = Date.init(timeIntervalSince1970: 1000000)
+        XCTAssertEqual(date.userMDString(), expectedString)
+    }
+
+    func testUserYMDJPString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "1970年1月1日"
+        XCTAssertEqual(date.userYMDJPString(), expectedString)
+
+        date = Date.init(timeIntervalSince1970: 1000000)
+        expectedString = "1970年1月12日"
+        XCTAssertEqual(date.userYMDJPString(), expectedString)
+    }
+
+    func testUserYMJPString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "1970年1月"
+        XCTAssertEqual(date.userYMJPString(), expectedString)
+
+        date = Date.init(timeIntervalSince1970: 1000000)
+        expectedString = "1970年1月"
+        XCTAssertEqual(date.userYMJPString(), expectedString)
+    }
+
+    func testUserMDJPString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "1月1日"
+        XCTAssertEqual(date.userMDJPString(), expectedString)
+
+        date = Date.init(timeIntervalSince1970: 1000000)
+        expectedString = "1月12日"
+        XCTAssertEqual(date.userMDJPString(), expectedString)
+    }
+
 }
