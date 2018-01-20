@@ -31,4 +31,14 @@ public extension Date {
         self = date
     }
 
+    func isoString() -> String {
+        let dateFormat: String = "yyyy-MM-dd HH:mm:ss"
+        return self.string(format: dateFormat)
+    }
+
+    func isoDateString() -> String {
+        let dateFormat: String = "yyyy-MM-dd"
+        return self.string(format: dateFormat)
+    }
+
 }

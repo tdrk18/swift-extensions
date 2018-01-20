@@ -74,4 +74,30 @@ class DateExtensionTests: XCTestCase {
         XCTAssertNil(date)
     }
 
+    func testISOString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "1970-01-01 00:00:00"
+        XCTAssertEqual(date.isoString(), expectedString)
+
+        date = Date.init(timeIntervalSince1970: 1000000)
+        expectedString = "1970-01-12 13:46:40"
+        XCTAssertEqual(date.isoString(), expectedString)
+    }
+
+    func testISODateString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "1970-01-01"
+        XCTAssertEqual(date.isoDateString(), expectedString)
+
+        date = Date.init(timeIntervalSince1970: 1000000)
+        expectedString = "1970-01-12"
+        XCTAssertEqual(date.isoDateString(), expectedString)
+    }
+
 }
