@@ -61,6 +61,11 @@ public extension Date {
         return self.string(format: dateFormat)
     }
 
+    func userEString() -> String {
+        let dateFormat: String = "E"
+        return self.string(format: dateFormat)
+    }
+
     func userYMDJPString() -> String {
         let dateFormat: String = "yyyy年M月d日"
         return self.string(format: dateFormat)
@@ -74,6 +79,17 @@ public extension Date {
     func userMDJPString() -> String {
         let dateFormat: String = "M月d日"
         return self.string(format: dateFormat)
+    }
+
+    func userEJPString() -> String {
+        let formatterJP: DateFormatter = DateFormatter()
+        if let timezone: TimeZone = NSTimeZone.init(abbreviation: "UTC") as TimeZone? {
+            formatterJP.timeZone = timezone
+        }
+        formatterJP.locale = Locale(identifier: "ja_JP")
+        formatterJP.calendar = Calendar(identifier: .gregorian)
+        let dateFormat: String = "E"
+        return self.string(format: dateFormat, formatter: formatterJP)
     }
 
 }

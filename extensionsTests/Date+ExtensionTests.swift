@@ -186,6 +186,19 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date.userMDString(), expectedString)
     }
 
+    func testUserEString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "Thu"
+        XCTAssertEqual(date.userEString(), expectedString)
+
+        expectedString = "Mon"
+        date = Date.init(timeIntervalSince1970: 1000000)
+        XCTAssertEqual(date.userEString(), expectedString)
+    }
+
     func testUserYMDJPString() {
         var date: Date
         var expectedString: String
@@ -223,6 +236,19 @@ class DateExtensionTests: XCTestCase {
         date = Date.init(timeIntervalSince1970: 1000000)
         expectedString = "1月12日"
         XCTAssertEqual(date.userMDJPString(), expectedString)
+    }
+
+    func testUserEJPString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "木"
+        XCTAssertEqual(date.userEJPString(), expectedString)
+
+        expectedString = "月"
+        date = Date.init(timeIntervalSince1970: 1000000)
+        XCTAssertEqual(date.userEJPString(), expectedString)
     }
 
 }
