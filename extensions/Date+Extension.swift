@@ -10,6 +10,9 @@ import Foundation
 
 let formatter: DateFormatter = {
     let formatter: DateFormatter = DateFormatter()
+    if let timezone: TimeZone = NSTimeZone.init(abbreviation: "UTC") as TimeZone? {
+        formatter.timeZone = timezone
+    }
     formatter.locale = Locale(identifier: "en_US_POSIX")
     formatter.calendar = Calendar(identifier: .gregorian)
     return formatter
@@ -17,15 +20,17 @@ let formatter: DateFormatter = {
 
 public extension Date {
 
-    func string(format: String = "") -> String {
+    func string(format: String) -> String {
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+
+    func string(format: String, formatter: DateFormatter) -> String {
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
 
     init?(dateString: String, dateFormat: String = "") {
-        if let timezone: TimeZone = NSTimeZone.init(abbreviation: "UTC") as TimeZone? {
-            formatter.timeZone = timezone
-        }
         formatter.dateFormat = dateFormat
         guard let date: Date = formatter.date(from: dateString) else { return nil }
         self = date

@@ -23,7 +23,7 @@ class DateExtensionTests: XCTestCase {
     }
 
     func testString() {
-        let date = Date.init(timeIntervalSince1970: 0)
+        let date: Date = Date.init(timeIntervalSince1970: 0)
         var expectedString, format: String
 
         expectedString = "1970/1/1"
@@ -57,6 +57,53 @@ class DateExtensionTests: XCTestCase {
         expectedString = "0:00"
         format = "H:mm"
         XCTAssertEqual(date.string(format: format), expectedString)
+    }
+
+    func testStringWithFormatter() {
+        let formatter: DateFormatter = {
+            let formatter: DateFormatter = DateFormatter()
+            if let timezone: TimeZone = NSTimeZone.init(abbreviation: "UTC") as TimeZone? {
+                formatter.timeZone = timezone
+            }
+            formatter.locale = Locale(identifier: "en_US_POSIX")
+            formatter.calendar = Calendar(identifier: .gregorian)
+            return formatter
+        }()
+
+        let date: Date = Date.init(timeIntervalSince1970: 0)
+        var expectedString, format: String
+
+        expectedString = "1970/1/1"
+        format = "yyyy/M/d"
+        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
+
+        expectedString = "1970/01/01"
+        format = "yyyy/MM/dd"
+        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
+
+        expectedString = "1/1"
+        format = "M/d"
+        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
+
+        expectedString = "01/01"
+        format = "MM/dd"
+        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
+
+        expectedString = "1970/1/1 00:00:00"
+        format = "yyyy/M/d HH:mm:ss"
+        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
+
+        expectedString = "1/1 00:00"
+        format = "M/d HH:mm"
+        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
+
+        expectedString = "00:00:00"
+        format = "HH:mm:ss"
+        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
+
+        expectedString = "0:00"
+        format = "H:mm"
+        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
     }
 
     func testInit() {
