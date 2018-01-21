@@ -251,4 +251,30 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date.userEJPString(), expectedString)
     }
 
+    func testUserTimeString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "00:00:00"
+        XCTAssertEqual(date.userTimeString(), expectedString)
+
+        date = Date.init(timeIntervalSince1970: 1000000)
+        expectedString = "13:46:40"
+        XCTAssertEqual(date.userTimeString(), expectedString)
+    }
+
+    func testUserTimeHMString() {
+        var date: Date
+        var expectedString: String
+
+        date = Date.init(timeIntervalSince1970: 0)
+        expectedString = "00:00"
+        XCTAssertEqual(date.userTimeHMString(), expectedString)
+
+        date = Date.init(timeIntervalSince1970: 1000000)
+        expectedString = "13:46"
+        XCTAssertEqual(date.userTimeHMString(), expectedString)
+    }
+
 }

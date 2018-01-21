@@ -92,4 +92,14 @@ public extension Date {
         return self.string(format: dateFormat, formatter: formatterJP)
     }
 
+    func userTimeString() -> String {
+        let dateFormat: String = "HH:mm:ss"
+        return self.string(format: dateFormat)
+    }
+
+    func userTimeHMString() -> String {
+        let dateFormat: String = "HH:mm"
+        return self.string(format: dateFormat)
+    }
+
 }
