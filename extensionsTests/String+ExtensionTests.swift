@@ -45,7 +45,7 @@ class StringExtensionTests: XCTestCase {
     }
 
     func testHasOnlyWhiteSpace() {
-        var string, expectedString: String
+        var string: String
 
         string = "hogehoge  "
         XCTAssertFalse(string.hasOnlyWhiteSpace())
