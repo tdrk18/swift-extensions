@@ -54,4 +54,38 @@ class UIColorExtensionTests: XCTestCase {
         XCTAssertEqual(magenta, UIColor.magenta)
     }
 
+    func testHex() {
+        var red, green, blue, yellow, cyan, magenta: UIColor
+
+        red = UIColor.hex("FF0000")
+        XCTAssertEqual(red, UIColor.red)
+        red = UIColor.hex("FF0000", alpha: 1.0)
+        XCTAssertEqual(red, UIColor.red)
+
+        green = UIColor.hex("00FF00")
+        XCTAssertEqual(green, UIColor.green)
+        green = UIColor.hex("00FF00", alpha: 1.0)
+        XCTAssertEqual(green, UIColor.green)
+
+        blue = UIColor.hex("0000FF")
+        XCTAssertEqual(blue, UIColor.blue)
+        blue = UIColor.hex("0000FF", alpha: 1.0)
+        XCTAssertEqual(blue, UIColor.blue)
+
+        yellow = UIColor.hex("FFFF00")
+        XCTAssertEqual(yellow, UIColor.yellow)
+        yellow = UIColor.hex("FFFF00", alpha: 1.0)
+        XCTAssertEqual(yellow, UIColor.yellow)
+
+        cyan = UIColor.hex("00FFFF")
+        XCTAssertEqual(cyan, UIColor.cyan)
+        cyan = UIColor.hex("00FFFF", alpha: 1.0)
+        XCTAssertEqual(cyan, UIColor.cyan)
+
+        magenta = UIColor.hex("FF00FF")
+        XCTAssertEqual(magenta, UIColor.magenta)
+        magenta = UIColor.hex("FF00FF", alpha: 1.0)
+        XCTAssertEqual(magenta, UIColor.magenta)
+    }
+
 }
