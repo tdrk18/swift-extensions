@@ -54,37 +54,37 @@ class UIColorExtensionTests: XCTestCase {
         XCTAssertEqual(magenta, UIColor.magenta)
     }
 
-    func testHex() {
+    func testHexString() {
         var red, green, blue, yellow, cyan, magenta: UIColor
 
-        red = UIColor.hex("FF0000")
+        red = UIColor.hexString("FF0000")
         XCTAssertEqual(red, UIColor.red)
-        red = UIColor.hex("FF0000", alpha: 1.0)
+        red = UIColor.hexString("FF0000", alpha: 1.0)
         XCTAssertEqual(red, UIColor.red)
 
-        green = UIColor.hex("00FF00")
+        green = UIColor.hexString("00FF00")
         XCTAssertEqual(green, UIColor.green)
-        green = UIColor.hex("00FF00", alpha: 1.0)
+        green = UIColor.hexString("00FF00", alpha: 1.0)
         XCTAssertEqual(green, UIColor.green)
 
-        blue = UIColor.hex("0000FF")
+        blue = UIColor.hexString("0000FF")
         XCTAssertEqual(blue, UIColor.blue)
-        blue = UIColor.hex("0000FF", alpha: 1.0)
+        blue = UIColor.hexString("0000FF", alpha: 1.0)
         XCTAssertEqual(blue, UIColor.blue)
 
-        yellow = UIColor.hex("FFFF00")
+        yellow = UIColor.hexString("FFFF00")
         XCTAssertEqual(yellow, UIColor.yellow)
-        yellow = UIColor.hex("FFFF00", alpha: 1.0)
+        yellow = UIColor.hexString("FFFF00", alpha: 1.0)
         XCTAssertEqual(yellow, UIColor.yellow)
 
-        cyan = UIColor.hex("00FFFF")
+        cyan = UIColor.hexString("00FFFF")
         XCTAssertEqual(cyan, UIColor.cyan)
-        cyan = UIColor.hex("00FFFF", alpha: 1.0)
+        cyan = UIColor.hexString("00FFFF", alpha: 1.0)
         XCTAssertEqual(cyan, UIColor.cyan)
 
-        magenta = UIColor.hex("FF00FF")
+        magenta = UIColor.hexString("FF00FF")
         XCTAssertEqual(magenta, UIColor.magenta)
-        magenta = UIColor.hex("FF00FF", alpha: 1.0)
+        magenta = UIColor.hexString("FF00FF", alpha: 1.0)
         XCTAssertEqual(magenta, UIColor.magenta)
     }
 
