@@ -54,7 +54,7 @@ class UIColorExtensionTests: XCTestCase {
         XCTAssertEqual(magenta, UIColor.magenta)
     }
 
-    func testHexg() {
+    func testHex() {
         var red, green, blue, yellow, cyan, magenta: UIColor
 
         red = UIColor.hex(0xFF0000)
