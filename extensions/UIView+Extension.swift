@@ -104,12 +104,30 @@ public extension UIView {
         return self.frame.size
     }
 
+    func size(_ size: CGSize) {
+        var frame: CGRect = self.frame
+        frame.size = size
+        self.frame = frame
+    }
+
     func width() -> CGFloat {
         return self.frame.width
     }
 
+    func width(_ width: CGFloat) {
+        let frame: CGRect = self.frame
+        let newFrame: CGRect = CGRect.init(x: frame.origin.x, y: frame.origin.y, width: width, height: frame.height)
+        self.frame = newFrame
+    }
+
     func height() -> CGFloat {
         return self.frame.height
+    }
+
+    func height(_ height: CGFloat) {
+        let frame: CGRect = self.frame
+        let newFrame: CGRect = CGRect.init(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: height)
+        self.frame = newFrame
     }
 
 }
