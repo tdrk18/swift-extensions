@@ -137,4 +137,43 @@ class UIViewExtensionTests: XCTestCase {
         XCTAssertEqual(view.bottom(), expect)
     }
 
+    func testSize() {
+        var view: UIView
+        var expect: CGSize
+
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
+        expect = CGSize.init(width: 300, height: 200)
+        XCTAssertEqual(view.size(), expect)
+
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
+        expect = CGSize.init(width: 180, height: 270)
+        XCTAssertEqual(view.size(), expect)
+    }
+
+    func testWidth() {
+        var view: UIView
+        var expect: CGFloat
+
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
+        expect = 300.0
+        XCTAssertEqual(view.width(), expect)
+
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
+        expect = 180.0
+        XCTAssertEqual(view.width(), expect)
+    }
+
+    func testHeight() {
+        var view: UIView
+        var expect: CGFloat
+
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
+        expect = 200.0
+        XCTAssertEqual(view.height(), expect)
+
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
+        expect = 270.0
+        XCTAssertEqual(view.height(), expect)
+    }
+
 }

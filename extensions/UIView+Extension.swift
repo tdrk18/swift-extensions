@@ -46,4 +46,16 @@ public extension UIView {
         return self.frame.origin.y + self.frame.height
     }
 
+    func size() -> CGSize {
+        return self.frame.size
+    }
+
+    func width() -> CGFloat {
+        return self.frame.width
+    }
+
+    func height() -> CGFloat {
+        return self.frame.height
+    }
+
 }
