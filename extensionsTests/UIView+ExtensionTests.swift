@@ -85,4 +85,56 @@ class UIViewExtensionTests: XCTestCase {
         XCTAssertEqual(view.centerY(), expect)
     }
 
+    func testLeft() {
+        var view: UIView
+        var expect: CGFloat
+
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
+        expect = 0.0
+        XCTAssertEqual(view.left(), expect)
+
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
+        expect = 50.0
+        XCTAssertEqual(view.left(), expect)
+    }
+
+    func testRight() {
+        var view: UIView
+        var expect: CGFloat
+
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
+        expect = 300.0
+        XCTAssertEqual(view.right(), expect)
+
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
+        expect = 230.0
+        XCTAssertEqual(view.right(), expect)
+    }
+
+    func testTop() {
+        var view: UIView
+        var expect: CGFloat
+
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
+        expect = 0.0
+        XCTAssertEqual(view.top(), expect)
+
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
+        expect = 30.0
+        XCTAssertEqual(view.top(), expect)
+    }
+
+    func testBottom() {
+        var view: UIView
+        var expect: CGFloat
+
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
+        expect = 200.0
+        XCTAssertEqual(view.bottom(), expect)
+
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
+        expect = 300.0
+        XCTAssertEqual(view.bottom(), expect)
+    }
+
 }

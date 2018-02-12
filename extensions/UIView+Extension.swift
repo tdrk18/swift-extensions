@@ -30,4 +30,20 @@ public extension UIView {
         return self.center.y
     }
 
+    func left() -> CGFloat {
+        return self.frame.origin.x
+    }
+
+    func right() -> CGFloat {
+        return self.frame.origin.x + self.frame.width
+    }
+
+    func top() -> CGFloat {
+        return self.frame.origin.y
+    }
+
+    func bottom() -> CGFloat {
+        return self.frame.origin.y + self.frame.height
+    }
+
 }
