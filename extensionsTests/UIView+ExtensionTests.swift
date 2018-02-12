@@ -24,16 +24,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGPoint
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = CGPoint.init(x: 0, y: 0)
+        view = UIView.init(frame: CGRect.init(x: expect.x, y: expect.y, width: 300, height: 200))
         XCTAssertEqual(view.origin(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = CGPoint.init(x: 50, y: 30)
+        view = UIView.init(frame: CGRect.init(x: expect.x, y: expect.y, width: 180, height: 270))
         XCTAssertEqual(view.origin(), expect)
 
-        view.origin(CGPoint.init(x: 100, y: 200))
         expect = CGPoint.init(x: 100, y: 200)
+        view.origin(expect)
         XCTAssertEqual(view.origin(), expect)
     }
 
@@ -41,16 +41,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGFloat
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = 0.0
+        view = UIView.init(frame: CGRect.init(x: expect, y: 0, width: 300, height: 200))
         XCTAssertEqual(view.originX(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 50.0
+        view = UIView.init(frame: CGRect.init(x: expect, y: 30, width: 180, height: 270))
         XCTAssertEqual(view.originX(), expect)
 
-        view.originX(200.0)
         expect = 200.0
+        view.originX(expect)
         XCTAssertEqual(view.originX(), expect)
     }
 
@@ -58,16 +58,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGFloat
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = 0.0
+        view = UIView.init(frame: CGRect.init(x: 0, y: expect, width: 300, height: 200))
         XCTAssertEqual(view.originY(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 30.0
+        view = UIView.init(frame: CGRect.init(x: 50, y: expect, width: 180, height: 270))
         XCTAssertEqual(view.originY(), expect)
 
-        view.originY(300.0)
         expect = 300.0
+        view.originY(expect)
         XCTAssertEqual(view.originY(), expect)
     }
 
@@ -75,16 +75,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGFloat
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = 150.0
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         XCTAssertEqual(view.centerX(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 140.0
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         XCTAssertEqual(view.centerX(), expect)
 
-        view.centerX(260.0)
         expect = 260.0
+        view.centerX(expect)
         XCTAssertEqual(view.centerX(), expect)
     }
 
@@ -92,16 +92,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGFloat
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = 100.0
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         XCTAssertEqual(view.centerY(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 165.0
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         XCTAssertEqual(view.centerY(), expect)
 
-        view.centerY(155.0)
         expect = 155.0
+        view.centerY(expect)
         XCTAssertEqual(view.centerY(), expect)
     }
 
@@ -109,16 +109,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGFloat
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = 0.0
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         XCTAssertEqual(view.left(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 50.0
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         XCTAssertEqual(view.left(), expect)
 
-        view.left(5.0)
         expect = 5.0
+        view.left(expect)
         XCTAssertEqual(view.left(), expect)
     }
 
@@ -126,16 +126,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGFloat
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = 300.0
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         XCTAssertEqual(view.right(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 230.0
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         XCTAssertEqual(view.right(), expect)
 
-        view.right(400.0)
         expect = 400.0
+        view.right(expect)
         XCTAssertEqual(view.right(), expect)
     }
 
@@ -143,16 +143,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGFloat
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = 0.0
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         XCTAssertEqual(view.top(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 30.0
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         XCTAssertEqual(view.top(), expect)
 
-        view.top(125.0)
         expect = 125.0
+        view.top(expect)
         XCTAssertEqual(view.top(), expect)
     }
 
@@ -160,16 +160,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGFloat
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = 200.0
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         XCTAssertEqual(view.bottom(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 300.0
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         XCTAssertEqual(view.bottom(), expect)
 
-        view.bottom(365.0)
         expect = 365.0
+        view.bottom(expect)
         XCTAssertEqual(view.bottom(), expect)
     }
 
@@ -177,16 +177,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGSize
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = CGSize.init(width: 300, height: 200)
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: expect.width, height: expect.height))
         XCTAssertEqual(view.size(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = CGSize.init(width: 180, height: 270)
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: expect.width, height: expect.height))
         XCTAssertEqual(view.size(), expect)
 
-        view.size(CGSize.init(width: 50, height: 75))
         expect = CGSize.init(width: 50, height: 75)
+        view.size(expect)
         XCTAssertEqual(view.size(), expect)
     }
 
@@ -194,16 +194,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGFloat
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = 300.0
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: expect, height: 200))
         XCTAssertEqual(view.width(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 180.0
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: expect, height: 270))
         XCTAssertEqual(view.width(), expect)
 
-        view.width(80.0)
         expect = 80.0
+        view.width(expect)
         XCTAssertEqual(view.width(), expect)
     }
 
@@ -211,16 +211,16 @@ class UIViewExtensionTests: XCTestCase {
         var view: UIView
         var expect: CGFloat
 
-        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
         expect = 200.0
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: expect))
         XCTAssertEqual(view.height(), expect)
 
-        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 270.0
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: expect))
         XCTAssertEqual(view.height(), expect)
 
-        view.height(70.0)
         expect = 70.0
+        view.height(expect)
         XCTAssertEqual(view.height(), expect)
     }
 
