@@ -59,4 +59,30 @@ class UIViewExtensionTests: XCTestCase {
         XCTAssertEqual(view.originY(), expect)
     }
 
+    func testCenterX() {
+        var view: UIView
+        var expect: CGFloat
+
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
+        expect = 150.0
+        XCTAssertEqual(view.centerX(), expect)
+
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
+        expect = 140.0
+        XCTAssertEqual(view.centerX(), expect)
+    }
+
+    func testCenterY() {
+        var view: UIView
+        var expect: CGFloat
+
+        view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
+        expect = 100.0
+        XCTAssertEqual(view.centerY(), expect)
+
+        view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
+        expect = 165.0
+        XCTAssertEqual(view.centerY(), expect)
+    }
+
 }

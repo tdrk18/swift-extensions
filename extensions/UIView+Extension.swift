@@ -22,4 +22,12 @@ public extension UIView {
         return self.frame.origin.y
     }
 
+    func centerX() -> CGFloat {
+        return self.center.x
+    }
+
+    func centerY() -> CGFloat {
+        return self.center.y
+    }
+
 }
