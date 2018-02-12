@@ -116,6 +116,10 @@ class UIViewExtensionTests: XCTestCase {
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 50.0
         XCTAssertEqual(view.left(), expect)
+
+        view.left(5.0)
+        expect = 5.0
+        XCTAssertEqual(view.left(), expect)
     }
 
     func testRight() {
@@ -128,6 +132,10 @@ class UIViewExtensionTests: XCTestCase {
 
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 230.0
+        XCTAssertEqual(view.right(), expect)
+
+        view.right(400.0)
+        expect = 400.0
         XCTAssertEqual(view.right(), expect)
     }
 
@@ -142,6 +150,10 @@ class UIViewExtensionTests: XCTestCase {
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 30.0
         XCTAssertEqual(view.top(), expect)
+
+        view.top(125.0)
+        expect = 125.0
+        XCTAssertEqual(view.top(), expect)
     }
 
     func testBottom() {
@@ -154,6 +166,10 @@ class UIViewExtensionTests: XCTestCase {
 
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 300.0
+        XCTAssertEqual(view.bottom(), expect)
+
+        view.bottom(365.0)
+        expect = 365.0
         XCTAssertEqual(view.bottom(), expect)
     }
 
