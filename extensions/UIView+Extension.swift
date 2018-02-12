@@ -14,12 +14,30 @@ public extension UIView {
         return self.frame.origin
     }
 
+    func origin(_ origin: CGPoint) {
+        var frame: CGRect = self.frame
+        frame.origin = origin
+        self.frame = frame
+    }
+
     func originX() -> CGFloat {
         return self.frame.origin.x
     }
 
+    func originX(_ originX: CGFloat) {
+        var frame: CGRect = self.frame
+        frame.origin.x = originX
+        self.frame = frame
+    }
+
     func originY() -> CGFloat {
         return self.frame.origin.y
+    }
+
+    func originY(_ originY: CGFloat) {
+        var frame: CGRect = self.frame
+        frame.origin.y = originY
+        self.frame = frame
     }
 
     func centerX() -> CGFloat {

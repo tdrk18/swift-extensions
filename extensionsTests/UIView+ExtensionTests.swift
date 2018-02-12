@@ -31,6 +31,10 @@ class UIViewExtensionTests: XCTestCase {
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = CGPoint.init(x: 50, y: 30)
         XCTAssertEqual(view.origin(), expect)
+
+        view.origin(CGPoint.init(x: 100, y: 200))
+        expect = CGPoint.init(x: 100, y: 200)
+        XCTAssertEqual(view.origin(), expect)
     }
 
     func testOriginX() {
@@ -44,6 +48,10 @@ class UIViewExtensionTests: XCTestCase {
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 50.0
         XCTAssertEqual(view.originX(), expect)
+
+        view.originX(200.0)
+        expect = 200.0
+        XCTAssertEqual(view.originX(), expect)
     }
 
     func testOriginY() {
@@ -56,6 +64,10 @@ class UIViewExtensionTests: XCTestCase {
 
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
         expect = 30.0
+        XCTAssertEqual(view.originY(), expect)
+
+        view.originY(300.0)
+        expect = 300.0
         XCTAssertEqual(view.originY(), expect)
     }
 
