@@ -13,6 +13,8 @@
 		161C7A8C201E05F200E3DD52 /* UIColor+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161C7A8B201E05F200E3DD52 /* UIColor+ExtensionTests.swift */; };
 		164085A820309148006C70AE /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164085A720309148006C70AE /* UIView+Extension.swift */; };
 		164085AA2030915F006C70AE /* UIView+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164085A92030915F006C70AE /* UIView+ExtensionTests.swift */; };
+		164085AC203279AA006C70AE /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164085AB203279AA006C70AE /* Dictionary+Extension.swift */; };
+		164085AE203279C3006C70AE /* Dictionary+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164085AD203279C3006C70AE /* Dictionary+ExtensionTests.swift */; };
 		1677080E2003ADDA00044CD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677080D2003ADDA00044CD5 /* AppDelegate.swift */; };
 		167708102003ADDA00044CD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677080F2003ADDA00044CD5 /* ViewController.swift */; };
 		167708132003ADDA00044CD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167708112003ADDA00044CD5 /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 		161C7A8B201E05F200E3DD52 /* UIColor+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ExtensionTests.swift"; sourceTree = "<group>"; };
 		164085A720309148006C70AE /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		164085A92030915F006C70AE /* UIView+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ExtensionTests.swift"; sourceTree = "<group>"; };
+		164085AB203279AA006C70AE /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
+		164085AD203279C3006C70AE /* Dictionary+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+ExtensionTests.swift"; sourceTree = "<group>"; };
 		1677080A2003ADDA00044CD5 /* extensions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = extensions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1677080D2003ADDA00044CD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1677080F2003ADDA00044CD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 				1677082D2003ADF500044CD5 /* Int+Extension.swift */,
 				16190867200CFC1500B61EEC /* Date+Extension.swift */,
 				F8E39C58201494060003AEC9 /* Array+Extension.swift */,
+				164085AB203279AA006C70AE /* Dictionary+Extension.swift */,
 				F8E39C5C201496E00003AEC9 /* String+Extension.swift */,
 				161C7A89201E05E200E3DD52 /* UIColor+Extension.swift */,
 				164085A720309148006C70AE /* UIView+Extension.swift */,
@@ -125,6 +130,7 @@
 				F8E39C5E201496FA0003AEC9 /* String+ExtensionTests.swift */,
 				161C7A8B201E05F200E3DD52 /* UIColor+ExtensionTests.swift */,
 				164085A92030915F006C70AE /* UIView+ExtensionTests.swift */,
+				164085AD203279C3006C70AE /* Dictionary+ExtensionTests.swift */,
 			);
 			path = extensionsTests;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 				164085A820309148006C70AE /* UIView+Extension.swift in Sources */,
 				F8E39C59201494060003AEC9 /* Array+Extension.swift in Sources */,
 				16190868200CFC1500B61EEC /* Date+Extension.swift in Sources */,
+				164085AC203279AA006C70AE /* Dictionary+Extension.swift in Sources */,
 				167708102003ADDA00044CD5 /* ViewController.swift in Sources */,
 				F8E39C5D201496E00003AEC9 /* String+Extension.swift in Sources */,
 				1677080E2003ADDA00044CD5 /* AppDelegate.swift in Sources */,
@@ -267,6 +274,7 @@
 			files = (
 				F8E39C5F201496FA0003AEC9 /* String+ExtensionTests.swift in Sources */,
 				F8E39C5B201494380003AEC9 /* Array+ExtensionTests.swift in Sources */,
+				164085AE203279C3006C70AE /* Dictionary+ExtensionTests.swift in Sources */,
 				161C7A8C201E05F200E3DD52 /* UIColor+ExtensionTests.swift in Sources */,
 				167708302003AE0F00044CD5 /* Int+ExtensionTests.swift in Sources */,
 				164085AA2030915F006C70AE /* UIView+ExtensionTests.swift in Sources */,
