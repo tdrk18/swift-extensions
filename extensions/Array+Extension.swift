@@ -32,4 +32,12 @@ public extension Array where Element: Equatable {
         }
     }
 
+    mutating func unique() {
+        self = reduce(into: []) {
+            if !$0.contains($1) {
+                $0.append($1)
+            }
+        }
+    }
+
 }
