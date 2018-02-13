@@ -16,3 +16,28 @@ public extension Array where Element == Int {
     }
 
 }
+
+public extension Array where Element: Equatable {
+
+    mutating func removeFirst(element: Element) {
+        if let index: Int = self.index(of: element) {
+            self.remove(at: index)
+        }
+    }
+
+    mutating func remove(element: Element) {
+        if let index: Int = self.index(of: element) {
+            self.remove(at: index)
+            self.remove(element: element)
+        }
+    }
+
+    mutating func unique() {
+        self = reduce(into: []) {
+            if !$0.contains($1) {
+                $0.append($1)
+            }
+        }
+    }
+
+}
