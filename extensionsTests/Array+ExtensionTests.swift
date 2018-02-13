@@ -43,4 +43,23 @@ class ArrayExtensionTests: XCTestCase {
         XCTAssertEqual(array.sortDesc(), expectedArray)
     }
 
+    func testRemove() {
+        var array, expectedArray: [Int]
+
+        expectedArray = [3, 1, 4, 0, 2]
+        array = [3, 1, 2, 4, 0, 2]
+        array.removeFirst(element: 2)
+        XCTAssertEqual(array, expectedArray)
+
+        expectedArray = [3, 1, 4, 0]
+        array = [3, 1, 2, 4, 0, 2]
+        array.remove(element: 2)
+        XCTAssertEqual(array, expectedArray)
+
+        expectedArray = [3, 1, 2, 4, 0]
+        array = [3, 1, 2, 4, 0]
+        array.remove(element: 10)
+        XCTAssertEqual(array, expectedArray)
+    }
+
 }
