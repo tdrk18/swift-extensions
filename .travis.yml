@@ -2,9 +2,6 @@ language: objective-c
 matrix:
   include:
   - osx_image: xcode9.4
-before_install:
-- brew update
-- brew upgrade swiftlint
 script:
 - swiftlint lint --strict
 - xcodebuild -scheme extensions -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.4,name=iPhone SE' -configuration Debug test | bundle exec xcpretty -c && exit ${PIPESTATUS[0]}
