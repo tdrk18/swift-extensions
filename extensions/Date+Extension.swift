@@ -20,12 +20,7 @@ public extension Date {
         return formatter
     }()
 
-    func string(format: String) -> String {
-        Date.formatter.dateFormat = format
-        return Date.formatter.string(from: self)
-    }
-
-    func string(format: String, formatter: DateFormatter) -> String {
+    func string(format: String, formatter: DateFormatter = Date.formatter) -> String {
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
