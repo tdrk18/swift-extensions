@@ -24,114 +24,114 @@ class UIColorExtensionTests: XCTestCase {
         var red, green, blue, yellow, cyan, magenta: UIColor
 
         red = UIColor.rgb(red: 255, green: 0, blue: 0)
-        XCTAssertEqual(red, UIColor.red)
+        XCTAssertEqual(red, .red)
         red = UIColor.rgb(red: 255, green: 0, blue: 0, alpha: 1.0)
-        XCTAssertEqual(red, UIColor.red)
+        XCTAssertEqual(red, .red)
 
         green = UIColor.rgb(red: 0, green: 255, blue: 0)
-        XCTAssertEqual(green, UIColor.green)
+        XCTAssertEqual(green, .green)
         green = UIColor.rgb(red: 0, green: 255, blue: 0, alpha: 1.0)
-        XCTAssertEqual(green, UIColor.green)
+        XCTAssertEqual(green, .green)
 
         blue = UIColor.rgb(red: 0, green: 0, blue: 255)
-        XCTAssertEqual(blue, UIColor.blue)
+        XCTAssertEqual(blue, .blue)
         blue = UIColor.rgb(red: 0, green: 0, blue: 255, alpha: 1.0)
-        XCTAssertEqual(blue, UIColor.blue)
+        XCTAssertEqual(blue, .blue)
 
         yellow = UIColor.rgb(red: 255, green: 255, blue: 0)
-        XCTAssertEqual(yellow, UIColor.yellow)
+        XCTAssertEqual(yellow, .yellow)
         yellow = UIColor.rgb(red: 255, green: 255, blue: 0, alpha: 1.0)
-        XCTAssertEqual(yellow, UIColor.yellow)
+        XCTAssertEqual(yellow, .yellow)
 
         cyan = UIColor.rgb(red: 0, green: 255, blue: 255)
-        XCTAssertEqual(cyan, UIColor.cyan)
+        XCTAssertEqual(cyan, .cyan)
         cyan = UIColor.rgb(red: 0, green: 255, blue: 255, alpha: 1.0)
-        XCTAssertEqual(cyan, UIColor.cyan)
+        XCTAssertEqual(cyan, .cyan)
 
         magenta = UIColor.rgb(red: 255, green: 0, blue: 255)
-        XCTAssertEqual(magenta, UIColor.magenta)
+        XCTAssertEqual(magenta, .magenta)
         magenta = UIColor.rgb(red: 255, green: 0, blue: 255, alpha: 1.0)
-        XCTAssertEqual(magenta, UIColor.magenta)
+        XCTAssertEqual(magenta, .magenta)
     }
 
     func testHex() {
         var red, green, blue, yellow, cyan, magenta: UIColor
 
         red = UIColor.hex(0xFF0000)
-        XCTAssertEqual(red, UIColor.red)
+        XCTAssertEqual(red, .red)
         red = UIColor.hex(0xFF0000, alpha: 1.0)
-        XCTAssertEqual(red, UIColor.red)
+        XCTAssertEqual(red, .red)
 
         green = UIColor.hex(0x00FF00)
-        XCTAssertEqual(green, UIColor.green)
+        XCTAssertEqual(green, .green)
         green = UIColor.hex(0x00FF00, alpha: 1.0)
-        XCTAssertEqual(green, UIColor.green)
+        XCTAssertEqual(green, .green)
 
         blue = UIColor.hex(0x0000FF)
-        XCTAssertEqual(blue, UIColor.blue)
+        XCTAssertEqual(blue, .blue)
         blue = UIColor.hex(0x0000FF, alpha: 1.0)
-        XCTAssertEqual(blue, UIColor.blue)
+        XCTAssertEqual(blue, .blue)
 
         yellow = UIColor.hex(0xFFFF00)
-        XCTAssertEqual(yellow, UIColor.yellow)
+        XCTAssertEqual(yellow, .yellow)
         yellow = UIColor.hex(0xFFFF00, alpha: 1.0)
-        XCTAssertEqual(yellow, UIColor.yellow)
+        XCTAssertEqual(yellow, .yellow)
 
         cyan = UIColor.hex(0x00FFFF)
-        XCTAssertEqual(cyan, UIColor.cyan)
+        XCTAssertEqual(cyan, .cyan)
         cyan = UIColor.hex(0x00FFFF, alpha: 1.0)
-        XCTAssertEqual(cyan, UIColor.cyan)
+        XCTAssertEqual(cyan, .cyan)
 
         magenta = UIColor.hex(0xFF00FF)
-        XCTAssertEqual(magenta, UIColor.magenta)
+        XCTAssertEqual(magenta, .magenta)
         magenta = UIColor.hex(0xFF00FF, alpha: 1.0)
-        XCTAssertEqual(magenta, UIColor.magenta)
+        XCTAssertEqual(magenta, .magenta)
     }
 
     func testHexString() {
         var red, green, blue, yellow, cyan, magenta: UIColor
 
         red = UIColor.hexString("FF0000")
-        XCTAssertEqual(red, UIColor.red)
+        XCTAssertEqual(red, .red)
         red = UIColor.hexString("#FF0000")
-        XCTAssertEqual(red, UIColor.red)
+        XCTAssertEqual(red, .red)
         red = UIColor.hexString("FF0000", alpha: 1.0)
-        XCTAssertEqual(red, UIColor.red)
+        XCTAssertEqual(red, .red)
 
         green = UIColor.hexString("00FF00")
-        XCTAssertEqual(green, UIColor.green)
+        XCTAssertEqual(green, .green)
         green = UIColor.hexString("#00FF00")
-        XCTAssertEqual(green, UIColor.green)
+        XCTAssertEqual(green, .green)
         green = UIColor.hexString("00FF00", alpha: 1.0)
-        XCTAssertEqual(green, UIColor.green)
+        XCTAssertEqual(green, .green)
 
         blue = UIColor.hexString("0000FF")
-        XCTAssertEqual(blue, UIColor.blue)
+        XCTAssertEqual(blue, .blue)
         blue = UIColor.hexString("#0000FF")
-        XCTAssertEqual(blue, UIColor.blue)
+        XCTAssertEqual(blue, .blue)
         blue = UIColor.hexString("0000FF", alpha: 1.0)
-        XCTAssertEqual(blue, UIColor.blue)
+        XCTAssertEqual(blue, .blue)
 
         yellow = UIColor.hexString("FFFF00")
-        XCTAssertEqual(yellow, UIColor.yellow)
+        XCTAssertEqual(yellow, .yellow)
         yellow = UIColor.hexString("#FFFF00")
-        XCTAssertEqual(yellow, UIColor.yellow)
+        XCTAssertEqual(yellow, .yellow)
         yellow = UIColor.hexString("FFFF00", alpha: 1.0)
-        XCTAssertEqual(yellow, UIColor.yellow)
+        XCTAssertEqual(yellow, .yellow)
 
         cyan = UIColor.hexString("00FFFF")
-        XCTAssertEqual(cyan, UIColor.cyan)
+        XCTAssertEqual(cyan, .cyan)
         cyan = UIColor.hexString("#00FFFF")
-        XCTAssertEqual(cyan, UIColor.cyan)
+        XCTAssertEqual(cyan, .cyan)
         cyan = UIColor.hexString("00FFFF", alpha: 1.0)
-        XCTAssertEqual(cyan, UIColor.cyan)
+        XCTAssertEqual(cyan, .cyan)
 
         magenta = UIColor.hexString("FF00FF")
-        XCTAssertEqual(magenta, UIColor.magenta)
+        XCTAssertEqual(magenta, .magenta)
         magenta = UIColor.hexString("#FF00FF")
-        XCTAssertEqual(magenta, UIColor.magenta)
+        XCTAssertEqual(magenta, .magenta)
         magenta = UIColor.hexString("FF00FF", alpha: 1.0)
-        XCTAssertEqual(magenta, UIColor.magenta)
+        XCTAssertEqual(magenta, .magenta)
     }
 
 }
