@@ -8,31 +8,26 @@
 
 import Foundation
 
-let formatter: DateFormatter = {
-    let formatter: DateFormatter = DateFormatter()
-    if let timezone: TimeZone = NSTimeZone.init(abbreviation: "UTC") as TimeZone? {
-        formatter.timeZone = timezone
-    }
-    formatter.locale = Locale(identifier: "en_US_POSIX")
-    formatter.calendar = Calendar(identifier: .gregorian)
-    return formatter
-}()
-
 public extension Date {
 
-    func string(format: String) -> String {
-        formatter.dateFormat = format
-        return formatter.string(from: self)
-    }
+    static let formatter: DateFormatter = {
+        let formatter: DateFormatter = DateFormatter()
+        if let timezone: TimeZone = NSTimeZone.init(abbreviation: "UTC") as TimeZone? {
+            formatter.timeZone = timezone
+        }
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.calendar = Calendar(identifier: .gregorian)
+        return formatter
+    }()
 
-    func string(format: String, formatter: DateFormatter) -> String {
+    func string(format: String, formatter: DateFormatter = Date.formatter) -> String {
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
 
     init?(dateString: String, dateFormat: String = "") {
-        formatter.dateFormat = dateFormat
-        guard let date: Date = formatter.date(from: dateString) else { return nil }
+        Date.formatter.dateFormat = dateFormat
+        guard let date: Date = Date.formatter.date(from: dateString) else { return nil }
         self = date
     }
 
