@@ -19,7 +19,8 @@ public extension Int {
     }
 
     // MARK: - methods
-    private func formattedString(style: NumberFormatter.Style, localeIdentifier: String) -> String {
+    private func formattedString(style: NumberFormatter.Style, localeIdentifier: String) -> String
+    {
         let formatter: NumberFormatter = NumberFormatter()
         formatter.numberStyle = style
         formatter.locale = Locale(identifier: localeIdentifier)
