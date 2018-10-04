@@ -191,6 +191,7 @@
 					};
 					1677081D2003ADDA00044CD5 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 167708092003ADDA00044CD5;
 					};
@@ -468,7 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tdrk18.extensionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/extensions.app/extensions";
 			};
@@ -486,7 +487,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tdrk18.extensionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/extensions.app/extensions";
 			};
