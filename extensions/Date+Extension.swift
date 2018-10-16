@@ -18,13 +18,14 @@ extension Date {
         case dayOfWeek = "E"
         case ymdJP = "yyyy年M月d日"
         case mdJP = "M月d日"
+        case time = "HH:mm:ss"
 
         func locale() -> Locale {
             switch self {
             case .iso, .isoDay:
                 return Locale(identifier: "en_US_POSIX")
             case .ymd, .mdShort, .dayOfWeek,
-                 .ymdJP, .mdJP:
+                 .ymdJP, .mdJP, .time:
                 return Locale(identifier: "ja_JP")
             }
         }
