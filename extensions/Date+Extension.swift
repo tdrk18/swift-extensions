@@ -57,11 +57,6 @@ extension Date {
         return Date.string(from: self, format: format)
     }
 
-    func string(format: String, formatter: DateFormatter = Date.formatter) -> String {
-        formatter.dateFormat = format
-        return formatter.string(from: self)
-    }
-
     init?(dateString: String, dateFormat: String = "") {
         Date.formatter.dateFormat = dateFormat
         guard let date: Date = Date.formatter.date(from: dateString) else { return nil }
@@ -80,11 +75,6 @@ extension Date {
         return self.string(format: .ymd)
     }
 
-    func userYMString() -> String {
-        let dateFormat: String = "yyyy/M"
-        return self.string(format: dateFormat)
-    }
-
     func userMDString() -> String {
         return self.string(format: .mdShort)
     }
@@ -95,11 +85,6 @@ extension Date {
 
     func userYMDJPString() -> String {
         return self.string(format: .ymdJP)
-    }
-
-    func userYMJPString() -> String {
-        let dateFormat: String = "yyyy年M月"
-        return self.string(format: dateFormat)
     }
 
     func userMDJPString() -> String {
