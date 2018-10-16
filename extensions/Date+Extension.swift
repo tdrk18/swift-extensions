@@ -8,17 +8,49 @@
 
 import Foundation
 
-public extension Date {
+extension Date {
+
+    enum DateFormat: String {
+        case iso = "yyyy-MM-dd HH:mm:ss"
+        case isoDay = "yyyy-MM-dd"
+        case ymd = "yyyy/M/d"
+        case mdShort = "M/d"
+        case dayOfWeek = "E"
+        case ymdJP = "yyyy年M月d日"
+        case mdJP = "M月d日"
+
+        func locale() -> Locale {
+            switch self {
+            case .iso, .isoDay:
+                return Locale(identifier: "en_US_POSIX")
+            case .ymd, .mdShort, .dayOfWeek,
+                 .ymdJP, .mdJP:
+                return Locale(identifier: "ja_JP")
+            }
+        }
+    }
 
     static let formatter: DateFormatter = {
         let formatter: DateFormatter = DateFormatter()
-        if let timezone: TimeZone = NSTimeZone.init(abbreviation: "UTC") as TimeZone? {
+        if let timezone: TimeZone = TimeZone(identifier: "GMT") {
             formatter.timeZone = timezone
         }
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.calendar = Calendar(identifier: .gregorian)
         return formatter
     }()
+
+    static func date(from dateString: String, format: DateFormat) -> Date? {
+        let dateFormatter = Date.formatter
+        dateFormatter.dateFormat = format.rawValue
+        dateFormatter.locale = format.locale()
+        return dateFormatter.date(from: dateString)
+    }
+
+    static func string(from date: Date, format: DateFormat) -> String {
+        let dateFormatter = Date.formatter
+        dateFormatter.dateFormat = format.rawValue
+        dateFormatter.locale = format.locale()
+        return dateFormatter.string(from: date)
+    }
 
     func string(format: String, formatter: DateFormatter = Date.formatter) -> String {
         formatter.dateFormat = format
