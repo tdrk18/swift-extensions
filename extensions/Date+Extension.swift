@@ -52,6 +52,10 @@ extension Date {
         return dateFormatter.string(from: date)
     }
 
+    func string(format: DateFormat) -> String {
+        return Date.string(from: self, format: format)
+    }
+
     func string(format: String, formatter: DateFormatter = Date.formatter) -> String {
         formatter.dateFormat = format
         return formatter.string(from: self)
