@@ -191,10 +191,10 @@ class DateExtensionTests: XCTestCase {
         var expectedString: String
 
         date = Date.init(timeIntervalSince1970: 0)
-        expectedString = "Thu"
+        expectedString = "木"
         XCTAssertEqual(date.userEString(), expectedString)
 
-        expectedString = "Mon"
+        expectedString = "月"
         date = Date.init(timeIntervalSince1970: 1000000)
         XCTAssertEqual(date.userEString(), expectedString)
     }
@@ -238,19 +238,6 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date.userMDJPString(), expectedString)
     }
 
-    func testUserEJPString() {
-        var date: Date
-        var expectedString: String
-
-        date = Date.init(timeIntervalSince1970: 0)
-        expectedString = "木"
-        XCTAssertEqual(date.userEJPString(), expectedString)
-
-        expectedString = "月"
-        date = Date.init(timeIntervalSince1970: 1000000)
-        XCTAssertEqual(date.userEJPString(), expectedString)
-    }
-
     func testUserTimeString() {
         var date: Date
         var expectedString: String
@@ -262,19 +249,6 @@ class DateExtensionTests: XCTestCase {
         date = Date.init(timeIntervalSince1970: 1000000)
         expectedString = "13:46:40"
         XCTAssertEqual(date.userTimeString(), expectedString)
-    }
-
-    func testUserTimeHMString() {
-        var date: Date
-        var expectedString: String
-
-        date = Date.init(timeIntervalSince1970: 0)
-        expectedString = "00:00"
-        XCTAssertEqual(date.userTimeHMString(), expectedString)
-
-        date = Date.init(timeIntervalSince1970: 1000000)
-        expectedString = "13:46"
-        XCTAssertEqual(date.userTimeHMString(), expectedString)
     }
 
 }

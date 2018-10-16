@@ -69,18 +69,15 @@ extension Date {
     }
 
     func isoString() -> String {
-        let dateFormat: String = "yyyy-MM-dd HH:mm:ss"
-        return self.string(format: dateFormat)
+        return self.string(format: .iso)
     }
 
     func isoDateString() -> String {
-        let dateFormat: String = "yyyy-MM-dd"
-        return self.string(format: dateFormat)
+        return self.string(format: .isoDay)
     }
 
     func userYMDString() -> String {
-        let dateFormat: String = "yyyy/M/d"
-        return self.string(format: dateFormat)
+        return self.string(format: .ymd)
     }
 
     func userYMString() -> String {
@@ -89,18 +86,15 @@ extension Date {
     }
 
     func userMDString() -> String {
-        let dateFormat: String = "M/d"
-        return self.string(format: dateFormat)
+        return self.string(format: .mdShort)
     }
 
     func userEString() -> String {
-        let dateFormat: String = "E"
-        return self.string(format: dateFormat)
+        return self.string(format: .dayOfWeek)
     }
 
     func userYMDJPString() -> String {
-        let dateFormat: String = "yyyy年M月d日"
-        return self.string(format: dateFormat)
+        return self.string(format: .ymdJP)
     }
 
     func userYMJPString() -> String {
@@ -109,29 +103,11 @@ extension Date {
     }
 
     func userMDJPString() -> String {
-        let dateFormat: String = "M月d日"
-        return self.string(format: dateFormat)
-    }
-
-    func userEJPString() -> String {
-        let formatterJP: DateFormatter = DateFormatter()
-        if let timezone: TimeZone = NSTimeZone.init(abbreviation: "UTC") as TimeZone? {
-            formatterJP.timeZone = timezone
-        }
-        formatterJP.locale = Locale(identifier: "ja_JP")
-        formatterJP.calendar = Calendar(identifier: .gregorian)
-        let dateFormat: String = "E"
-        return self.string(format: dateFormat, formatter: formatterJP)
+        return self.string(format: .mdJP)
     }
 
     func userTimeString() -> String {
-        let dateFormat: String = "HH:mm:ss"
-        return self.string(format: dateFormat)
-    }
-
-    func userTimeHMString() -> String {
-        let dateFormat: String = "HH:mm"
-        return self.string(format: dateFormat)
+        return self.string(format: .time)
     }
 
 }
