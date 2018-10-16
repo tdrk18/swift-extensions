@@ -39,6 +39,11 @@ extension Date {
         return formatter
     }()
 
+    init?(from dateString: String, format: DateFormat) {
+        guard let date = Date.date(from: dateString, format: format) else { return nil }
+        self = date
+    }
+
     static func date(from dateString: String, format: DateFormat) -> Date? {
         let dateFormatter = Date.formatter
         dateFormatter.dateFormat = format.rawValue
@@ -55,12 +60,6 @@ extension Date {
 
     func string(format: DateFormat) -> String {
         return Date.string(from: self, format: format)
-    }
-
-    init?(dateString: String, dateFormat: String = "") {
-        Date.formatter.dateFormat = dateFormat
-        guard let date: Date = Date.formatter.date(from: dateString) else { return nil }
-        self = date
     }
 
     func isoString() -> String {

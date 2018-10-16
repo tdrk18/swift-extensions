@@ -39,19 +39,30 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date.string(format: .time), expectedString)
     }
 
-    func testInit() {
-        var dateString, dateFormat: String
+    func testDate() {
+        var dateString: String
         var date: Date?
 
-        dateString = "1970/01/01"
-        dateFormat = "yyyy/MM/dd"
-        date = Date.init(dateString: dateString, dateFormat: dateFormat)
+        dateString = "1970-01-01 00:00:00"
+        date = Date.date(from: dateString, format: .iso)
         XCTAssertEqual(date, Date.init(timeIntervalSince1970: 0))
 
         dateString = "1970/01/01"
-        dateFormat = "MM/dd"
-        date = Date.init(dateString: dateString, dateFormat: dateFormat)
-        XCTAssertNil(date)
+        date = Date.date(from: dateString, format: .ymd)
+        XCTAssertEqual(date, Date.init(timeIntervalSince1970: 0))
+    }
+
+    func testInit() {
+        var dateString: String
+        var date: Date?
+
+        dateString = "1970-01-01 00:00:00"
+        date = Date.init(from: dateString, format: .iso)
+        XCTAssertEqual(date, Date.init(timeIntervalSince1970: 0))
+
+        dateString = "1970/01/01"
+        date = Date.init(from: dateString, format: .ymd)
+        XCTAssertEqual(date, Date.init(timeIntervalSince1970: 0))
     }
 
     func testISOString() {
