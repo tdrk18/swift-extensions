@@ -24,101 +24,45 @@ class DateExtensionTests: XCTestCase {
 
     func testString() {
         let date: Date = Date.init(timeIntervalSince1970: 0)
-        var expectedString, format: String
+        var expectedString: String
+
+        expectedString = "1970-01-01 00:00:00"
+        XCTAssertEqual(date.string(format: .iso), expectedString)
 
         expectedString = "1970/1/1"
-        format = "yyyy/M/d"
-        XCTAssertEqual(date.string(format: format), expectedString)
-
-        expectedString = "1970/01/01"
-        format = "yyyy/MM/dd"
-        XCTAssertEqual(date.string(format: format), expectedString)
+        XCTAssertEqual(date.string(format: .ymd), expectedString)
 
         expectedString = "1/1"
-        format = "M/d"
-        XCTAssertEqual(date.string(format: format), expectedString)
-
-        expectedString = "01/01"
-        format = "MM/dd"
-        XCTAssertEqual(date.string(format: format), expectedString)
-
-        expectedString = "1970/1/1 00:00:00"
-        format = "yyyy/M/d HH:mm:ss"
-        XCTAssertEqual(date.string(format: format), expectedString)
-
-        expectedString = "1/1 00:00"
-        format = "M/d HH:mm"
-        XCTAssertEqual(date.string(format: format), expectedString)
+        XCTAssertEqual(date.string(format: .mdShort), expectedString)
 
         expectedString = "00:00:00"
-        format = "HH:mm:ss"
-        XCTAssertEqual(date.string(format: format), expectedString)
-
-        expectedString = "0:00"
-        format = "H:mm"
-        XCTAssertEqual(date.string(format: format), expectedString)
+        XCTAssertEqual(date.string(format: .time), expectedString)
     }
 
-    func testStringWithFormatter() {
-        let formatter: DateFormatter = {
-            let formatter: DateFormatter = DateFormatter()
-            if let timezone: TimeZone = NSTimeZone.init(abbreviation: "UTC") as TimeZone? {
-                formatter.timeZone = timezone
-            }
-            formatter.locale = Locale(identifier: "en_US_POSIX")
-            formatter.calendar = Calendar(identifier: .gregorian)
-            return formatter
-        }()
-
-        let date: Date = Date.init(timeIntervalSince1970: 0)
-        var expectedString, format: String
-
-        expectedString = "1970/1/1"
-        format = "yyyy/M/d"
-        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
-
-        expectedString = "1970/01/01"
-        format = "yyyy/MM/dd"
-        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
-
-        expectedString = "1/1"
-        format = "M/d"
-        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
-
-        expectedString = "01/01"
-        format = "MM/dd"
-        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
-
-        expectedString = "1970/1/1 00:00:00"
-        format = "yyyy/M/d HH:mm:ss"
-        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
-
-        expectedString = "1/1 00:00"
-        format = "M/d HH:mm"
-        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
-
-        expectedString = "00:00:00"
-        format = "HH:mm:ss"
-        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
-
-        expectedString = "0:00"
-        format = "H:mm"
-        XCTAssertEqual(date.string(format: format, formatter: formatter), expectedString)
-    }
-
-    func testInit() {
-        var dateString, dateFormat: String
+    func testDate() {
+        var dateString: String
         var date: Date?
 
-        dateString = "1970/01/01"
-        dateFormat = "yyyy/MM/dd"
-        date = Date.init(dateString: dateString, dateFormat: dateFormat)
+        dateString = "1970-01-01 00:00:00"
+        date = Date.date(from: dateString, format: .iso)
         XCTAssertEqual(date, Date.init(timeIntervalSince1970: 0))
 
         dateString = "1970/01/01"
-        dateFormat = "MM/dd"
-        date = Date.init(dateString: dateString, dateFormat: dateFormat)
-        XCTAssertNil(date)
+        date = Date.date(from: dateString, format: .ymd)
+        XCTAssertEqual(date, Date.init(timeIntervalSince1970: 0))
+    }
+
+    func testInit() {
+        var dateString: String
+        var date: Date?
+
+        dateString = "1970-01-01 00:00:00"
+        date = Date.init(from: dateString, format: .iso)
+        XCTAssertEqual(date, Date.init(timeIntervalSince1970: 0))
+
+        dateString = "1970/01/01"
+        date = Date.init(from: dateString, format: .ymd)
+        XCTAssertEqual(date, Date.init(timeIntervalSince1970: 0))
     }
 
     func testISOString() {
@@ -160,19 +104,6 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date.userYMDString(), expectedString)
     }
 
-    func testUserYMString() {
-        var date: Date
-        var expectedString: String
-
-        date = Date.init(timeIntervalSince1970: 0)
-        expectedString = "1970/1"
-        XCTAssertEqual(date.userYMString(), expectedString)
-
-        expectedString = "1970/1"
-        date = Date.init(timeIntervalSince1970: 1000000)
-        XCTAssertEqual(date.userYMString(), expectedString)
-    }
-
     func testUserMDString() {
         var date: Date
         var expectedString: String
@@ -191,10 +122,10 @@ class DateExtensionTests: XCTestCase {
         var expectedString: String
 
         date = Date.init(timeIntervalSince1970: 0)
-        expectedString = "Thu"
+        expectedString = "木"
         XCTAssertEqual(date.userEString(), expectedString)
 
-        expectedString = "Mon"
+        expectedString = "月"
         date = Date.init(timeIntervalSince1970: 1000000)
         XCTAssertEqual(date.userEString(), expectedString)
     }
@@ -212,19 +143,6 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date.userYMDJPString(), expectedString)
     }
 
-    func testUserYMJPString() {
-        var date: Date
-        var expectedString: String
-
-        date = Date.init(timeIntervalSince1970: 0)
-        expectedString = "1970年1月"
-        XCTAssertEqual(date.userYMJPString(), expectedString)
-
-        date = Date.init(timeIntervalSince1970: 1000000)
-        expectedString = "1970年1月"
-        XCTAssertEqual(date.userYMJPString(), expectedString)
-    }
-
     func testUserMDJPString() {
         var date: Date
         var expectedString: String
@@ -238,19 +156,6 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date.userMDJPString(), expectedString)
     }
 
-    func testUserEJPString() {
-        var date: Date
-        var expectedString: String
-
-        date = Date.init(timeIntervalSince1970: 0)
-        expectedString = "木"
-        XCTAssertEqual(date.userEJPString(), expectedString)
-
-        expectedString = "月"
-        date = Date.init(timeIntervalSince1970: 1000000)
-        XCTAssertEqual(date.userEJPString(), expectedString)
-    }
-
     func testUserTimeString() {
         var date: Date
         var expectedString: String
@@ -262,19 +167,6 @@ class DateExtensionTests: XCTestCase {
         date = Date.init(timeIntervalSince1970: 1000000)
         expectedString = "13:46:40"
         XCTAssertEqual(date.userTimeString(), expectedString)
-    }
-
-    func testUserTimeHMString() {
-        var date: Date
-        var expectedString: String
-
-        date = Date.init(timeIntervalSince1970: 0)
-        expectedString = "00:00"
-        XCTAssertEqual(date.userTimeHMString(), expectedString)
-
-        date = Date.init(timeIntervalSince1970: 1000000)
-        expectedString = "13:46"
-        XCTAssertEqual(date.userTimeHMString(), expectedString)
     }
 
 }
