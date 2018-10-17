@@ -115,4 +115,8 @@ extension Date {
         return Date.gregorianCalendar.date(byAdding: dateComponents, to: self.startOfDay())
     }
 
+    func isBefore(_ date: Date) -> Bool {
+        return self.compare(date) == .orderedAscending
+    }
+
 }
