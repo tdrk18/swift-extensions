@@ -106,4 +106,13 @@ extension Date {
         return Date.gregorianCalendar.startOfDay(for: self)
     }
 
+    func endOfDay() -> Date? {
+        var dateComponents = DateComponents()
+        dateComponents.hour = 23
+        dateComponents.minute = 59
+        dateComponents.second = 59
+
+        return Date.gregorianCalendar.date(byAdding: dateComponents, to: self.startOfDay())
+    }
+
 }

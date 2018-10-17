@@ -185,4 +185,20 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date2.startOfDay(), expect2)
     }
 
+    func testEndOfDay() {
+        guard let date1 = Date.init(from: "2000-01-01 00:00:00", format: .iso),
+              let expect1 = Date.init(from: "2000-01-01 23:59:59", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date1.endOfDay(), expect1)
+
+        guard let date2 = Date.init(from: "2000-01-01 23:30:00", format: .iso),
+              let expect2 = Date.init(from: "2000-01-01 23:59:59", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date2.endOfDay(), expect2)
+    }
+
 }
