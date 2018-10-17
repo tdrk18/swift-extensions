@@ -139,6 +139,16 @@ extension Date {
         return calendar.date(from: components)
     }
 
+    func endOfWeek() -> Date? {
+        let calendar = Date.iso8601Calendar
+        let components = calendar.dateComponents(
+            [.weekOfYear, .yearForWeekOfYear],
+            from: self
+        )
+        guard let date = calendar.date(from: components) else { return nil }
+        return date.add(hours: 24 * 6)
+    }
+
     func isBefore(_ date: Date) -> Bool {
         return self.compare(date) == .orderedAscending
     }
