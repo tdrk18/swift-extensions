@@ -123,4 +123,8 @@ extension Date {
         return self.compare(date) == .orderedDescending
     }
 
+    func isFuture() -> Bool {
+        return Date().isBefore(self)
+    }
+
 }
