@@ -39,6 +39,14 @@ extension Date {
         return formatter
     }()
 
+    static let gregorianCalendar: Calendar = {
+        var calendar = Calendar(identifier: .gregorian)
+        if let timeZone = TimeZone(identifier: "GMT") {
+            calendar.timeZone = timeZone
+        }
+        return calendar
+    }()
+
     init?(from dateString: String, format: DateFormat) {
         guard let date = Date.date(from: dateString, format: format) else { return nil }
         self = date
@@ -92,6 +100,10 @@ extension Date {
 
     func userTimeString() -> String {
         return self.string(format: .time)
+    }
+
+    func startOfDay() -> Date {
+        return Date.gregorianCalendar.startOfDay(for: self)
     }
 
 }
