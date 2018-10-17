@@ -39,6 +39,14 @@ extension Date {
         return formatter
     }()
 
+    static let iso8601Calendar: Calendar = {
+        var calendar = Calendar(identifier: .iso8601)
+        if let timeZone = TimeZone(identifier: "GMT") {
+            calendar.timeZone = timeZone
+        }
+        return calendar
+    }()
+
     static let gregorianCalendar: Calendar = {
         var calendar = Calendar(identifier: .gregorian)
         if let timeZone = TimeZone(identifier: "GMT") {
@@ -113,6 +121,15 @@ extension Date {
         dateComponents.second = 59
 
         return Date.gregorianCalendar.date(byAdding: dateComponents, to: self.startOfDay())
+    }
+
+    func startOfWeek() -> Date? {
+        let calendar = Date.iso8601Calendar
+        let components = calendar.dateComponents(
+            [.weekOfYear, .yearForWeekOfYear],
+            from: self
+        )
+        return calendar.date(from: components)
     }
 
     func isBefore(_ date: Date) -> Bool {

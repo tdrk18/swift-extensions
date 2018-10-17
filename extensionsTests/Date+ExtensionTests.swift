@@ -201,6 +201,22 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date2.endOfDay(), expect2)
     }
 
+    func testStartOfWeek() {
+        guard let date1 = Date.init(from: "2000-01-01 00:00:00", format: .iso),
+              let expect1 = Date.init(from: "1999-12-27 00:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date1.startOfWeek(), expect1)
+
+        guard let date2 = Date.init(from: "2018-10-18 00:00:00", format: .iso),
+              let expect2 = Date.init(from: "2018-10-15 00:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date2.startOfWeek(), expect2)
+    }
+
     func testIsBefore() {
         guard let date1 = Date.init(from: "2000-01-01 00:00:00", format: .iso),
               let date2 = Date.init(from: "2000-01-02 12:34:56", format: .iso) else {
