@@ -212,4 +212,15 @@ class DateExtensionTests: XCTestCase {
         XCTAssertFalse(date1.isBefore(date1))
     }
 
+    func testIsAfter() {
+        guard let date1 = Date.init(from: "2000-01-01 00:00:00", format: .iso),
+              let date2 = Date.init(from: "2000-01-02 12:34:56", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertFalse(date1.isAfter(date2))
+        XCTAssertTrue(date2.isAfter(date1))
+        XCTAssertFalse(date1.isAfter(date1))
+    }
+
 }

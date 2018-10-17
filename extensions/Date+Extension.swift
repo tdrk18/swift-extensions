@@ -119,4 +119,8 @@ extension Date {
         return self.compare(date) == .orderedAscending
     }
 
+    func isAfter(_ date: Date) -> Bool {
+        return self.compare(date) == .orderedDescending
+    }
+
 }
