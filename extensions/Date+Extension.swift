@@ -110,6 +110,13 @@ extension Date {
         return self.string(format: .time)
     }
 
+    func add(hours: Int) -> Date {
+        var timeInterval = self.timeIntervalSinceReferenceDate
+        timeInterval = floor(timeInterval / 3600.0) * 3600.0
+        timeInterval += 3600.0 * Double(hours)
+        return Date(timeIntervalSinceReferenceDate: timeInterval)
+    }
+
     func startOfDay() -> Date {
         return Date.gregorianCalendar.startOfDay(for: self)
     }

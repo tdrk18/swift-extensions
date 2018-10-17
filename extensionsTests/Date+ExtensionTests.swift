@@ -169,6 +169,36 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date.userTimeString(), expectedString)
     }
 
+    func testAddHours() {
+        guard let date = Date.init(from: "2000-01-01 00:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+
+        var add: Int
+
+        add = 5
+        guard let expect1 = Date.init(from: "2000-01-01 05:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date.add(hours: add), expect1)
+
+        add = 20
+        guard let expect2 = Date.init(from: "2000-01-01 20:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date.add(hours: add), expect2)
+
+        add = -10
+        guard let expect3 = Date.init(from: "1999-12-31 14:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date.add(hours: add), expect3)
+    }
+
     func testStartOfDay() {
         guard let date1 = Date.init(from: "2000-01-01 00:00:00", format: .iso),
               let expect1 = Date.init(from: "2000-01-01", format: .isoDay) else {
