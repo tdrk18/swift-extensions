@@ -169,4 +169,131 @@ class DateExtensionTests: XCTestCase {
         XCTAssertEqual(date.userTimeString(), expectedString)
     }
 
+    func testAddHours() {
+        guard let date = Date.init(from: "2000-01-01 00:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+
+        var add: Int
+
+        add = 5
+        guard let expect1 = Date.init(from: "2000-01-01 05:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date.add(hours: add), expect1)
+
+        add = 20
+        guard let expect2 = Date.init(from: "2000-01-01 20:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date.add(hours: add), expect2)
+
+        add = -10
+        guard let expect3 = Date.init(from: "1999-12-31 14:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date.add(hours: add), expect3)
+    }
+
+    func testStartOfDay() {
+        guard let date1 = Date.init(from: "2000-01-01 00:00:00", format: .iso),
+              let expect1 = Date.init(from: "2000-01-01", format: .isoDay) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date1.startOfDay(), expect1)
+
+        guard let date2 = Date.init(from: "2000-01-01 23:30:00", format: .iso),
+              let expect2 = Date.init(from: "2000-01-01", format: .isoDay) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date2.startOfDay(), expect2)
+    }
+
+    func testEndOfDay() {
+        guard let date1 = Date.init(from: "2000-01-01 00:00:00", format: .iso),
+              let expect1 = Date.init(from: "2000-01-01 23:59:59", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date1.endOfDay(), expect1)
+
+        guard let date2 = Date.init(from: "2000-01-01 23:30:00", format: .iso),
+              let expect2 = Date.init(from: "2000-01-01 23:59:59", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date2.endOfDay(), expect2)
+    }
+
+    func testStartOfWeek() {
+        guard let date1 = Date.init(from: "2000-01-01 00:00:00", format: .iso),
+              let expect1 = Date.init(from: "1999-12-27 00:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date1.startOfWeek(), expect1)
+
+        guard let date2 = Date.init(from: "2018-10-18 00:00:00", format: .iso),
+              let expect2 = Date.init(from: "2018-10-15 00:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date2.startOfWeek(), expect2)
+    }
+
+    func testEndOfWeek() {
+        guard let date1 = Date.init(from: "2000-01-01 00:00:00", format: .iso),
+              let expect1 = Date.init(from: "2000-01-02 00:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date1.endOfWeek(), expect1)
+
+        guard let date2 = Date.init(from: "2018-10-18 00:00:00", format: .iso),
+              let expect2 = Date.init(from: "2018-10-21 00:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertEqual(date2.endOfWeek(), expect2)
+    }
+
+    func testIsBefore() {
+        guard let date1 = Date.init(from: "2000-01-01 00:00:00", format: .iso),
+              let date2 = Date.init(from: "2000-01-02 12:34:56", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertTrue(date1.isBefore(date2))
+        XCTAssertFalse(date2.isBefore(date1))
+        XCTAssertFalse(date1.isBefore(date1))
+    }
+
+    func testIsAfter() {
+        guard let date1 = Date.init(from: "2000-01-01 00:00:00", format: .iso),
+              let date2 = Date.init(from: "2000-01-02 12:34:56", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertFalse(date1.isAfter(date2))
+        XCTAssertTrue(date2.isAfter(date1))
+        XCTAssertFalse(date1.isAfter(date1))
+    }
+
+    func testIsFuture() {
+        guard let date = Date.init(from: "2000-01-01 00:00:00", format: .iso) else {
+            XCTFail("failed create date object")
+            return
+        }
+        XCTAssertFalse(date.isFuture())
+
+        let future = Date.init(timeIntervalSinceNow: 60 * 60 * 10)
+        XCTAssertTrue(future.isFuture())
+    }
+
 }

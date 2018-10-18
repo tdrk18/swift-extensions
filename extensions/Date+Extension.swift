@@ -39,6 +39,22 @@ extension Date {
         return formatter
     }()
 
+    static let iso8601Calendar: Calendar = {
+        var calendar = Calendar(identifier: .iso8601)
+        if let timeZone = TimeZone(identifier: "GMT") {
+            calendar.timeZone = timeZone
+        }
+        return calendar
+    }()
+
+    static let gregorianCalendar: Calendar = {
+        var calendar = Calendar(identifier: .gregorian)
+        if let timeZone = TimeZone(identifier: "GMT") {
+            calendar.timeZone = timeZone
+        }
+        return calendar
+    }()
+
     init?(from dateString: String, format: DateFormat) {
         guard let date = Date.date(from: dateString, format: format) else { return nil }
         self = date
@@ -92,6 +108,57 @@ extension Date {
 
     func userTimeString() -> String {
         return self.string(format: .time)
+    }
+
+    func add(hours: Int) -> Date {
+        var timeInterval = self.timeIntervalSinceReferenceDate
+        timeInterval = floor(timeInterval / 3600.0) * 3600.0
+        timeInterval += 3600.0 * Double(hours)
+        return Date(timeIntervalSinceReferenceDate: timeInterval)
+    }
+
+    func startOfDay() -> Date {
+        return Date.gregorianCalendar.startOfDay(for: self)
+    }
+
+    func endOfDay() -> Date? {
+        var dateComponents = DateComponents()
+        dateComponents.hour = 23
+        dateComponents.minute = 59
+        dateComponents.second = 59
+
+        return Date.gregorianCalendar.date(byAdding: dateComponents, to: self.startOfDay())
+    }
+
+    func startOfWeek() -> Date? {
+        let calendar = Date.iso8601Calendar
+        let components = calendar.dateComponents(
+            [.weekOfYear, .yearForWeekOfYear],
+            from: self
+        )
+        return calendar.date(from: components)
+    }
+
+    func endOfWeek() -> Date? {
+        let calendar = Date.iso8601Calendar
+        let components = calendar.dateComponents(
+            [.weekOfYear, .yearForWeekOfYear],
+            from: self
+        )
+        guard let date = calendar.date(from: components) else { return nil }
+        return date.add(hours: 24 * 6)
+    }
+
+    func isBefore(_ date: Date) -> Bool {
+        return self.compare(date) == .orderedAscending
+    }
+
+    func isAfter(_ date: Date) -> Bool {
+        return self.compare(date) == .orderedDescending
+    }
+
+    func isFuture() -> Bool {
+        return Date().isBefore(self)
     }
 
 }
