@@ -130,4 +130,54 @@ public extension UIView {
         self.frame = newFrame
     }
 
+    func addBorders(_ positions: [BorderPosition], width: CGFloat, color: UIColor) {
+        for position in positions {
+            addBorder(position, width: width, color: color)
+        }
+    }
+
+    func addBorder(_ position: BorderPosition, width: CGFloat, color: UIColor) {
+        // remove border in the same position
+        if let sublayers = self.layer.sublayers {
+            for sublayer in sublayers.filter({ $0.name == position.name }) {
+                sublayer.removeFromSuperlayer()
+            }
+        }
+
+        let border = CALayer()
+        switch position {
+        case .top:
+            border.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: width)
+        case .left:
+            border.frame = CGRect(x: 0, y: 0, width: width, height: self.frame.height)
+        case .right:
+            border.frame = CGRect(x: self.frame.width - width, y: 0, width: width, height: self.frame.height)
+        case .bottom:
+            border.frame = CGRect(x: 0, y: self.frame.height - width, width: self.frame.width, height: width)
+        }
+        border.backgroundColor = color.cgColor
+        border.name = position.name
+
+        self.layer.addSublayer(border)
+    }
+
+    enum BorderPosition: Int {
+        case top
+        case left
+        case right
+        case bottom
+
+        var name: String {
+            switch self {
+            case .top:
+                return "topBorder"
+            case .left:
+                return "leftBorder"
+            case .right:
+                return "rightBorder"
+            case .bottom:
+                return "bottomBorder"
+            }
+        }
+    }
 }
