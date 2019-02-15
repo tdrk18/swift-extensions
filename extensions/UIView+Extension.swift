@@ -130,6 +130,12 @@ public extension UIView {
         self.frame = newFrame
     }
 
+    func addBorders(_ positions: [BorderPosition], width: CGFloat, color: UIColor) {
+        for position in positions {
+            addBorder(position, width: width, color: color)
+        }
+    }
+
     func addBorder(_ position: BorderPosition, width: CGFloat, color: UIColor) {
         // remove border in the same position
         if let sublayers = self.layer.sublayers {
