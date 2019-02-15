@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import extensions
 
 class UIViewExtensionTests: XCTestCase {
 
@@ -224,4 +225,41 @@ class UIViewExtensionTests: XCTestCase {
         XCTAssertEqual(view.height(), expect)
     }
 
+    func testAddBorder() {
+        var view: UIView
+        var sublayers: [CALayer]?
+
+        view = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
+        view.addBorder(.top, width: 1.0, color: .gray)
+        sublayers = view.layer.sublayers?.filter({ $0.name == UIView.BorderPosition.top.name })
+        XCTAssertNotNil(sublayers)
+        XCTAssertEqual(sublayers?.first?.name, UIView.BorderPosition.top.name)
+        XCTAssertEqual(sublayers?.first?.frame.height, 1.0)
+        XCTAssertEqual(sublayers?.first?.backgroundColor, UIColor.gray.cgColor)
+
+        view.addBorder(.top, width: 1.0, color: .gray)
+        sublayers = view.layer.sublayers?.filter({ $0.name == UIView.BorderPosition.top.name })
+        XCTAssertEqual(sublayers?.count, 1)
+
+        view.addBorder(.bottom, width: 1.0, color: .green)
+        sublayers = view.layer.sublayers?.filter({ $0.name == UIView.BorderPosition.bottom.name })
+        XCTAssertNotNil(sublayers)
+        XCTAssertEqual(sublayers?.first?.name, UIView.BorderPosition.bottom.name)
+        XCTAssertEqual(sublayers?.first?.frame.height, 1.0)
+        XCTAssertEqual(sublayers?.first?.backgroundColor, UIColor.green.cgColor)
+
+        view.addBorder(.left, width: 1.0, color: .red)
+        sublayers = view.layer.sublayers?.filter({ $0.name == UIView.BorderPosition.left.name })
+        XCTAssertNotNil(sublayers)
+        XCTAssertEqual(sublayers?.first?.name, UIView.BorderPosition.left.name)
+        XCTAssertEqual(sublayers?.first?.frame.width, 1.0)
+        XCTAssertEqual(sublayers?.first?.backgroundColor, UIColor.red.cgColor)
+
+        view.addBorder(.right, width: 1.0, color: .blue)
+        sublayers = view.layer.sublayers?.filter({ $0.name == UIView.BorderPosition.right.name })
+        XCTAssertNotNil(sublayers)
+        XCTAssertEqual(sublayers?.first?.name, UIView.BorderPosition.right.name)
+        XCTAssertEqual(sublayers?.first?.frame.width, 1.0)
+        XCTAssertEqual(sublayers?.first?.backgroundColor, UIColor.blue.cgColor)
+    }
 }
