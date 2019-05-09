@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10760309E1D8E52A973BF45B /* DispatchQueue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10760141CF774B190A6576CA /* DispatchQueue+Extension.swift */; };
+		1076047F10D7EB306876A753 /* DispatchQueue+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107608EA32D42B370385E5C1 /* DispatchQueue+ExtensionTests.swift */; };
 		16190868200CFC1500B61EEC /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16190867200CFC1500B61EEC /* Date+Extension.swift */; };
 		1619086A200CFC3800B61EEC /* Date+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16190869200CFC3800B61EEC /* Date+ExtensionTests.swift */; };
 		161C7A8A201E05E200E3DD52 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161C7A89201E05E200E3DD52 /* UIColor+Extension.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10760141CF774B190A6576CA /* DispatchQueue+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extension.swift"; sourceTree = "<group>"; };
+		107608EA32D42B370385E5C1 /* DispatchQueue+ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+ExtensionTests.swift"; sourceTree = "<group>"; };
 		16190867200CFC1500B61EEC /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		16190869200CFC3800B61EEC /* Date+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ExtensionTests.swift"; sourceTree = "<group>"; };
 		161C7A89201E05E200E3DD52 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 				F8E39C5C201496E00003AEC9 /* String+Extension.swift */,
 				161C7A89201E05E200E3DD52 /* UIColor+Extension.swift */,
 				164085A720309148006C70AE /* UIView+Extension.swift */,
+				10760141CF774B190A6576CA /* DispatchQueue+Extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				161C7A8B201E05F200E3DD52 /* UIColor+ExtensionTests.swift */,
 				164085A92030915F006C70AE /* UIView+ExtensionTests.swift */,
 				164085AD203279C3006C70AE /* Dictionary+ExtensionTests.swift */,
+				107608EA32D42B370385E5C1 /* DispatchQueue+ExtensionTests.swift */,
 			);
 			path = extensionsTests;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 				167708102003ADDA00044CD5 /* ViewController.swift in Sources */,
 				F8E39C5D201496E00003AEC9 /* String+Extension.swift in Sources */,
 				1677080E2003ADDA00044CD5 /* AppDelegate.swift in Sources */,
+				10760309E1D8E52A973BF45B /* DispatchQueue+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +288,7 @@
 				167708302003AE0F00044CD5 /* Int+ExtensionTests.swift in Sources */,
 				164085AA2030915F006C70AE /* UIView+ExtensionTests.swift in Sources */,
 				1619086A200CFC3800B61EEC /* Date+ExtensionTests.swift in Sources */,
+				1076047F10D7EB306876A753 /* DispatchQueue+ExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
