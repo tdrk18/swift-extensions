@@ -24,6 +24,8 @@
 		167708182003ADDA00044CD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167708162003ADDA00044CD5 /* LaunchScreen.storyboard */; };
 		1677082E2003ADF500044CD5 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677082D2003ADF500044CD5 /* Int+Extension.swift */; };
 		167708302003AE0F00044CD5 /* Int+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677082F2003AE0F00044CD5 /* Int+ExtensionTests.swift */; };
+		B9627E2822D232C80044B749 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9627E2722D232C80044B749 /* UIImage+Extension.swift */; };
+		B9627E2A22D232DE0044B749 /* UIImage+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9627E2922D232DE0044B749 /* UIImage+ExtensionTests.swift */; };
 		F8E39C59201494060003AEC9 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E39C58201494060003AEC9 /* Array+Extension.swift */; };
 		F8E39C5B201494380003AEC9 /* Array+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E39C5A201494380003AEC9 /* Array+ExtensionTests.swift */; };
 		F8E39C5D201496E00003AEC9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E39C5C201496E00003AEC9 /* String+Extension.swift */; };
@@ -62,6 +64,8 @@
 		167708242003ADDA00044CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1677082D2003ADF500044CD5 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		1677082F2003AE0F00044CD5 /* Int+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+ExtensionTests.swift"; sourceTree = "<group>"; };
+		B9627E2722D232C80044B749 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		B9627E2922D232DE0044B749 /* UIImage+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ExtensionTests.swift"; sourceTree = "<group>"; };
 		F8E39C58201494060003AEC9 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		F8E39C5A201494380003AEC9 /* Array+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ExtensionTests.swift"; sourceTree = "<group>"; };
 		F8E39C5C201496E00003AEC9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				F8E39C5C201496E00003AEC9 /* String+Extension.swift */,
 				161C7A89201E05E200E3DD52 /* UIColor+Extension.swift */,
 				164085A720309148006C70AE /* UIView+Extension.swift */,
+				B9627E2722D232C80044B749 /* UIImage+Extension.swift */,
 				10760141CF774B190A6576CA /* DispatchQueue+Extension.swift */,
 			);
 			path = extensions;
@@ -136,6 +141,7 @@
 				161C7A8B201E05F200E3DD52 /* UIColor+ExtensionTests.swift */,
 				164085A92030915F006C70AE /* UIView+ExtensionTests.swift */,
 				164085AD203279C3006C70AE /* Dictionary+ExtensionTests.swift */,
+				B9627E2922D232DE0044B749 /* UIImage+ExtensionTests.swift */,
 				107608EA32D42B370385E5C1 /* DispatchQueue+ExtensionTests.swift */,
 			);
 			path = extensionsTests;
@@ -273,6 +279,7 @@
 				167708102003ADDA00044CD5 /* ViewController.swift in Sources */,
 				F8E39C5D201496E00003AEC9 /* String+Extension.swift in Sources */,
 				1677080E2003ADDA00044CD5 /* AppDelegate.swift in Sources */,
+				B9627E2822D232C80044B749 /* UIImage+Extension.swift in Sources */,
 				10760309E1D8E52A973BF45B /* DispatchQueue+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +290,7 @@
 			files = (
 				F8E39C5F201496FA0003AEC9 /* String+ExtensionTests.swift in Sources */,
 				F8E39C5B201494380003AEC9 /* Array+ExtensionTests.swift in Sources */,
+				B9627E2A22D232DE0044B749 /* UIImage+ExtensionTests.swift in Sources */,
 				164085AE203279C3006C70AE /* Dictionary+ExtensionTests.swift in Sources */,
 				161C7A8C201E05F200E3DD52 /* UIColor+ExtensionTests.swift in Sources */,
 				167708302003AE0F00044CD5 /* Int+ExtensionTests.swift in Sources */,
