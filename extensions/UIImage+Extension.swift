@@ -25,7 +25,7 @@ extension UIImage {
         return image
     }
 
-    static func imageWithGradation(start: UIColor, end: UIColor, size: CGSize) -> UIImage? {
+    static func imageWithVerticalGradation(start: UIColor, end: UIColor, size: CGSize) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
 
         guard let context = UIGraphicsGetCurrentContext() else {

@@ -26,10 +26,10 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(UIImage.image(color: .green, size: CGSize(width: 10.0, height: 10.0)))
     }
 
-    func testColorWithGradation() {
-        XCTAssertNotNil(UIImage.imageWithGradation(start: .white, end: .black, size: CGSize(width: 10.0, height: 10.0)))
-        XCTAssertNotNil(UIImage.imageWithGradation(start: .white, end: .red, size: CGSize(width: 10.0, height: 10.0)))
-        XCTAssertNotNil(UIImage.imageWithGradation(start: .white, end: .blue, size: CGSize(width: 10.0, height: 10.0)))
+    func testColorWithVerticalGradation() {
+        XCTAssertNotNil(UIImage.imageWithVerticalGradation(start: .white, end: .black, size: CGSize(width: 10.0, height: 10.0)))
+        XCTAssertNotNil(UIImage.imageWithVerticalGradation(start: .white, end: .red, size: CGSize(width: 10.0, height: 10.0)))
+        XCTAssertNotNil(UIImage.imageWithVerticalGradation(start: .white, end: .blue, size: CGSize(width: 10.0, height: 10.0)))
     }
 
 }
