@@ -38,4 +38,10 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(UIImage.imageWithHorizontalGradation(start: .white, end: .blue, size: CGSize(width: 10.0, height: 10.0)))
     }
 
+    func testColorWithLeftSlantedGradation() {
+        XCTAssertNotNil(UIImage.imageWithLeftSlantedGradation(start: .white, end: .black, size: CGSize(width: 10.0, height: 10.0)))
+        XCTAssertNotNil(UIImage.imageWithLeftSlantedGradation(start: .white, end: .red, size: CGSize(width: 10.0, height: 10.0)))
+        XCTAssertNotNil(UIImage.imageWithLeftSlantedGradation(start: .white, end: .blue, size: CGSize(width: 10.0, height: 10.0)))
+    }
+
 }
