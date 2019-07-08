@@ -26,28 +26,35 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(UIImage.image(color: .green, size: CGSize(width: 10.0, height: 10.0)))
     }
 
-    func testColorWithVerticalGradation() {
-        XCTAssertNotNil(UIImage.imageWithVerticalGradation(start: .white, end: .black, size: CGSize(width: 10.0, height: 10.0)))
-        XCTAssertNotNil(UIImage.imageWithVerticalGradation(start: .white, end: .red, size: CGSize(width: 10.0, height: 10.0)))
-        XCTAssertNotNil(UIImage.imageWithVerticalGradation(start: .white, end: .blue, size: CGSize(width: 10.0, height: 10.0)))
-    }
-
-    func testColorWithHorizontalGradation() {
-        XCTAssertNotNil(UIImage.imageWithHorizontalGradation(start: .white, end: .black, size: CGSize(width: 10.0, height: 10.0)))
-        XCTAssertNotNil(UIImage.imageWithHorizontalGradation(start: .white, end: .red, size: CGSize(width: 10.0, height: 10.0)))
-        XCTAssertNotNil(UIImage.imageWithHorizontalGradation(start: .white, end: .blue, size: CGSize(width: 10.0, height: 10.0)))
-    }
-
-    func testColorWithLeftSlantedGradation() {
-        XCTAssertNotNil(UIImage.imageWithLeftSlantedGradation(start: .white, end: .black, size: CGSize(width: 10.0, height: 10.0)))
-        XCTAssertNotNil(UIImage.imageWithLeftSlantedGradation(start: .white, end: .red, size: CGSize(width: 10.0, height: 10.0)))
-        XCTAssertNotNil(UIImage.imageWithLeftSlantedGradation(start: .white, end: .blue, size: CGSize(width: 10.0, height: 10.0)))
-    }
-
-    func testColorWithRightSlantedGradation() {
-        XCTAssertNotNil(UIImage.imageWithRightSlantedGradation(start: .white, end: .black, size: CGSize(width: 10.0, height: 10.0)))
-        XCTAssertNotNil(UIImage.imageWithRightSlantedGradation(start: .white, end: .red, size: CGSize(width: 10.0, height: 10.0)))
-        XCTAssertNotNil(UIImage.imageWithRightSlantedGradation(start: .white, end: .blue, size: CGSize(width: 10.0, height: 10.0)))
+    func testImageWithGradation() {
+        XCTAssertNotNil(
+            UIImage.imageWithGradation(direction: .vertical,
+                                       start: .white,
+                                       end: .black,
+                                       size: CGSize(width: 10.0, height: 10.0)
+            )
+        )
+        XCTAssertNotNil(
+            UIImage.imageWithGradation(direction: .horizontal,
+                                       start: .white,
+                                       end: .black,
+                                       size: CGSize(width: 10.0, height: 10.0)
+            )
+        )
+        XCTAssertNotNil(
+            UIImage.imageWithGradation(direction: .leftSlanted,
+                                       start: .white,
+                                       end: .black,
+                                       size: CGSize(width: 10.0, height: 10.0)
+            )
+        )
+        XCTAssertNotNil(
+            UIImage.imageWithGradation(direction: .rightSlanted,
+                                       start: .white,
+                                       end: .black,
+                                       size: CGSize(width: 10.0, height: 10.0)
+            )
+        )
     }
 
 }
