@@ -64,14 +64,13 @@ public extension UIView {
         }
     }
 
-    func right() -> CGFloat {
-        return self.frame.origin.x + self.frame.width
-    }
-
-    func right(_ right: CGFloat) {
-        var origin: CGPoint = self.frame.origin
-        origin.x = right - self.frame.width
-        self.frame.origin = origin
+    var right: CGFloat {
+        get {
+            return self.frame.origin.x + self.frame.width
+        }
+        set {
+            self.frame.origin.x = newValue - self.frame.width
+        }
     }
 
     func top() -> CGFloat {

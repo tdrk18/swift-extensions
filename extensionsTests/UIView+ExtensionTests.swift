@@ -129,15 +129,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 300.0
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
-        XCTAssertEqual(view.right(), expect)
+        XCTAssertEqual(view.right, expect)
 
         expect = 230.0
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
-        XCTAssertEqual(view.right(), expect)
+        XCTAssertEqual(view.right, expect)
 
         expect = 400.0
-        view.right(expect)
-        XCTAssertEqual(view.right(), expect)
+        view.right = expect
+        XCTAssertEqual(view.right, expect)
     }
 
     func testTop() {
