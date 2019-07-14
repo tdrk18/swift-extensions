@@ -111,14 +111,15 @@ public extension UIView {
         }
     }
 
-    func height() -> CGFloat {
-        return self.frame.height
-    }
-
-    func height(_ height: CGFloat) {
-        let frame: CGRect = self.frame
-        let newFrame: CGRect = CGRect.init(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: height)
-        self.frame = newFrame
+    var height: CGFloat {
+        get {
+            return self.frame.height
+        }
+        set {
+            let newFrame = CGRect(origin: self.frame.origin,
+                                  size: CGSize(width: self.frame.width, height: newValue))
+            self.frame = newFrame
+        }
     }
 
     func addBorders(_ positions: [BorderPosition], width: CGFloat, color: UIColor) {

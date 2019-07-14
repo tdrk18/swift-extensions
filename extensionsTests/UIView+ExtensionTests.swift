@@ -214,15 +214,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 200.0
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: expect))
-        XCTAssertEqual(view.height(), expect)
+        XCTAssertEqual(view.height, expect)
 
         expect = 270.0
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: expect))
-        XCTAssertEqual(view.height(), expect)
+        XCTAssertEqual(view.height, expect)
 
         expect = 70.0
-        view.height(expect)
-        XCTAssertEqual(view.height(), expect)
+        view.height = expect
+        XCTAssertEqual(view.height, expect)
     }
 
     func testAddBorders() {
