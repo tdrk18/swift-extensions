@@ -10,14 +10,13 @@ import UIKit
 
 public extension UIView {
 
-    func origin() -> CGPoint {
-        return self.frame.origin
-    }
-
-    func origin(_ origin: CGPoint) {
-        var frame: CGRect = self.frame
-        frame.origin = origin
-        self.frame = frame
+    var origin: CGPoint {
+        get {
+            return self.frame.origin
+        }
+        set {
+            self.frame.origin = newValue
+        }
     }
 
     func originX() -> CGFloat {
