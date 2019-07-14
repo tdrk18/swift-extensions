@@ -27,15 +27,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = CGPoint.init(x: 0, y: 0)
         view = UIView.init(frame: CGRect.init(x: expect.x, y: expect.y, width: 300, height: 200))
-        XCTAssertEqual(view.origin(), expect)
+        XCTAssertEqual(view.origin, expect)
 
         expect = CGPoint.init(x: 50, y: 30)
         view = UIView.init(frame: CGRect.init(x: expect.x, y: expect.y, width: 180, height: 270))
-        XCTAssertEqual(view.origin(), expect)
+        XCTAssertEqual(view.origin, expect)
 
         expect = CGPoint.init(x: 100, y: 200)
-        view.origin(expect)
-        XCTAssertEqual(view.origin(), expect)
+        view.origin = expect
+        XCTAssertEqual(view.origin, expect)
     }
 
     func testOriginX() {
@@ -44,15 +44,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 0.0
         view = UIView.init(frame: CGRect.init(x: expect, y: 0, width: 300, height: 200))
-        XCTAssertEqual(view.originX(), expect)
+        XCTAssertEqual(view.originX, expect)
 
         expect = 50.0
         view = UIView.init(frame: CGRect.init(x: expect, y: 30, width: 180, height: 270))
-        XCTAssertEqual(view.originX(), expect)
+        XCTAssertEqual(view.originX, expect)
 
         expect = 200.0
-        view.originX(expect)
-        XCTAssertEqual(view.originX(), expect)
+        view.originX = expect
+        XCTAssertEqual(view.originX, expect)
     }
 
     func testOriginY() {
@@ -61,15 +61,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 0.0
         view = UIView.init(frame: CGRect.init(x: 0, y: expect, width: 300, height: 200))
-        XCTAssertEqual(view.originY(), expect)
+        XCTAssertEqual(view.originY, expect)
 
         expect = 30.0
         view = UIView.init(frame: CGRect.init(x: 50, y: expect, width: 180, height: 270))
-        XCTAssertEqual(view.originY(), expect)
+        XCTAssertEqual(view.originY, expect)
 
         expect = 300.0
-        view.originY(expect)
-        XCTAssertEqual(view.originY(), expect)
+        view.originY = expect
+        XCTAssertEqual(view.originY, expect)
     }
 
     func testCenterX() {
@@ -78,15 +78,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 150.0
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
-        XCTAssertEqual(view.centerX(), expect)
+        XCTAssertEqual(view.centerX, expect)
 
         expect = 140.0
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
-        XCTAssertEqual(view.centerX(), expect)
+        XCTAssertEqual(view.centerX, expect)
 
         expect = 260.0
-        view.centerX(expect)
-        XCTAssertEqual(view.centerX(), expect)
+        view.centerX = expect
+        XCTAssertEqual(view.centerX, expect)
     }
 
     func testCenterY() {
@@ -95,15 +95,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 100.0
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
-        XCTAssertEqual(view.centerY(), expect)
+        XCTAssertEqual(view.centerY, expect)
 
         expect = 165.0
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
-        XCTAssertEqual(view.centerY(), expect)
+        XCTAssertEqual(view.centerY, expect)
 
         expect = 155.0
-        view.centerY(expect)
-        XCTAssertEqual(view.centerY(), expect)
+        view.centerY = expect
+        XCTAssertEqual(view.centerY, expect)
     }
 
     func testLeft() {
@@ -112,15 +112,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 0.0
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
-        XCTAssertEqual(view.left(), expect)
+        XCTAssertEqual(view.left, expect)
 
         expect = 50.0
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
-        XCTAssertEqual(view.left(), expect)
+        XCTAssertEqual(view.left, expect)
 
         expect = 5.0
-        view.left(expect)
-        XCTAssertEqual(view.left(), expect)
+        view.left = expect
+        XCTAssertEqual(view.left, expect)
     }
 
     func testRight() {
@@ -129,15 +129,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 300.0
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
-        XCTAssertEqual(view.right(), expect)
+        XCTAssertEqual(view.right, expect)
 
         expect = 230.0
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
-        XCTAssertEqual(view.right(), expect)
+        XCTAssertEqual(view.right, expect)
 
         expect = 400.0
-        view.right(expect)
-        XCTAssertEqual(view.right(), expect)
+        view.right = expect
+        XCTAssertEqual(view.right, expect)
     }
 
     func testTop() {
@@ -146,15 +146,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 0.0
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
-        XCTAssertEqual(view.top(), expect)
+        XCTAssertEqual(view.top, expect)
 
         expect = 30.0
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
-        XCTAssertEqual(view.top(), expect)
+        XCTAssertEqual(view.top, expect)
 
         expect = 125.0
-        view.top(expect)
-        XCTAssertEqual(view.top(), expect)
+        view.top = expect
+        XCTAssertEqual(view.top, expect)
     }
 
     func testBottom() {
@@ -163,15 +163,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 200.0
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 200))
-        XCTAssertEqual(view.bottom(), expect)
+        XCTAssertEqual(view.bottom, expect)
 
         expect = 300.0
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: 270))
-        XCTAssertEqual(view.bottom(), expect)
+        XCTAssertEqual(view.bottom, expect)
 
         expect = 365.0
-        view.bottom(expect)
-        XCTAssertEqual(view.bottom(), expect)
+        view.bottom = expect
+        XCTAssertEqual(view.bottom, expect)
     }
 
     func testSize() {
@@ -180,15 +180,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = CGSize.init(width: 300, height: 200)
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: expect.width, height: expect.height))
-        XCTAssertEqual(view.size(), expect)
+        XCTAssertEqual(view.size, expect)
 
         expect = CGSize.init(width: 180, height: 270)
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: expect.width, height: expect.height))
-        XCTAssertEqual(view.size(), expect)
+        XCTAssertEqual(view.size, expect)
 
         expect = CGSize.init(width: 50, height: 75)
-        view.size(expect)
-        XCTAssertEqual(view.size(), expect)
+        view.size = expect
+        XCTAssertEqual(view.size, expect)
     }
 
     func testWidth() {
@@ -197,15 +197,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 300.0
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: expect, height: 200))
-        XCTAssertEqual(view.width(), expect)
+        XCTAssertEqual(view.width, expect)
 
         expect = 180.0
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: expect, height: 270))
-        XCTAssertEqual(view.width(), expect)
+        XCTAssertEqual(view.width, expect)
 
         expect = 80.0
-        view.width(expect)
-        XCTAssertEqual(view.width(), expect)
+        view.width = expect
+        XCTAssertEqual(view.width, expect)
     }
 
     func testHeight() {
@@ -214,15 +214,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = 200.0
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: expect))
-        XCTAssertEqual(view.height(), expect)
+        XCTAssertEqual(view.height, expect)
 
         expect = 270.0
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: 180, height: expect))
-        XCTAssertEqual(view.height(), expect)
+        XCTAssertEqual(view.height, expect)
 
         expect = 70.0
-        view.height(expect)
-        XCTAssertEqual(view.height(), expect)
+        view.height = expect
+        XCTAssertEqual(view.height, expect)
     }
 
     func testAddBorders() {
