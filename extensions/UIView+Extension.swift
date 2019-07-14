@@ -55,14 +55,13 @@ public extension UIView {
         }
     }
 
-    func left() -> CGFloat {
-        return self.frame.origin.x
-    }
-
-    func left(_ left: CGFloat) {
-        var origin: CGPoint = self.frame.origin
-        origin.x = left
-        self.frame.origin = origin
+    var left: CGFloat {
+        get {
+            return self.frame.origin.x
+        }
+        set {
+            self.frame.origin.x = newValue
+        }
     }
 
     func right() -> CGFloat {
