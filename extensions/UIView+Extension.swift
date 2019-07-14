@@ -37,14 +37,13 @@ public extension UIView {
         }
     }
 
-    func centerX() -> CGFloat {
-        return self.center.x
-    }
-
-    func centerX(_ centerX: CGFloat) {
-        var center: CGPoint = self.center
-        center.x = centerX
-        self.center = center
+    var centerX: CGFloat {
+        get {
+            return self.center.x
+        }
+        set {
+            self.center.x = newValue
+        }
     }
 
     func centerY() -> CGFloat {
