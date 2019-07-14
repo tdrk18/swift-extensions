@@ -28,14 +28,13 @@ public extension UIView {
         }
     }
 
-    func originY() -> CGFloat {
-        return self.frame.origin.y
-    }
-
-    func originY(_ originY: CGFloat) {
-        var frame: CGRect = self.frame
-        frame.origin.y = originY
-        self.frame = frame
+    var originY: CGFloat {
+        get {
+            return self.frame.origin.y
+        }
+        set {
+            self.frame.origin.y = newValue
+        }
     }
 
     func centerX() -> CGFloat {
