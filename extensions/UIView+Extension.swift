@@ -73,14 +73,13 @@ public extension UIView {
         }
     }
 
-    func top() -> CGFloat {
-        return self.frame.origin.y
-    }
-
-    func top(_ top: CGFloat) {
-        var origin: CGPoint = self.frame.origin
-        origin.y = top
-        self.frame.origin = origin
+    var top: CGFloat {
+        get {
+            return self.frame.origin.y
+        }
+        set {
+            self.frame.origin.y = newValue
+        }
     }
 
     func bottom() -> CGFloat {
