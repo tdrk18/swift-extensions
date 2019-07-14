@@ -91,14 +91,13 @@ public extension UIView {
         }
     }
 
-    func size() -> CGSize {
-        return self.frame.size
-    }
-
-    func size(_ size: CGSize) {
-        var frame: CGRect = self.frame
-        frame.size = size
-        self.frame = frame
+    var size: CGSize {
+        get {
+            return self.frame.size
+        }
+        set {
+            self.frame.size = newValue
+        }
     }
 
     func width() -> CGFloat {

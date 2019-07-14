@@ -180,15 +180,15 @@ class UIViewExtensionTests: XCTestCase {
 
         expect = CGSize.init(width: 300, height: 200)
         view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: expect.width, height: expect.height))
-        XCTAssertEqual(view.size(), expect)
+        XCTAssertEqual(view.size, expect)
 
         expect = CGSize.init(width: 180, height: 270)
         view = UIView.init(frame: CGRect.init(x: 50, y: 30, width: expect.width, height: expect.height))
-        XCTAssertEqual(view.size(), expect)
+        XCTAssertEqual(view.size, expect)
 
         expect = CGSize.init(width: 50, height: 75)
-        view.size(expect)
-        XCTAssertEqual(view.size(), expect)
+        view.size = expect
+        XCTAssertEqual(view.size, expect)
     }
 
     func testWidth() {
