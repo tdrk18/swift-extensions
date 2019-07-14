@@ -100,14 +100,15 @@ public extension UIView {
         }
     }
 
-    func width() -> CGFloat {
-        return self.frame.width
-    }
-
-    func width(_ width: CGFloat) {
-        let frame: CGRect = self.frame
-        let newFrame: CGRect = CGRect.init(x: frame.origin.x, y: frame.origin.y, width: width, height: frame.height)
-        self.frame = newFrame
+    var width: CGFloat {
+        get {
+            return self.frame.width
+        }
+        set {
+            let newFrame = CGRect(origin: self.frame.origin,
+                                  size: CGSize(width: newValue, height: self.frame.height))
+            self.frame = newFrame
+        }
     }
 
     func height() -> CGFloat {
