@@ -42,4 +42,12 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(UIImage.image(name: imageName, tint: .blue))
     }
 
+    func testImageWithNameAndGradation() {
+        let imageName = "light"
+        XCTAssertNotNil(UIImage.imageWithGradation(direction: .vertical, start: .white, end: .black, name: imageName))
+        XCTAssertNotNil(UIImage.imageWithGradation(direction: .horizontal, start: .white, end: .black, name: imageName))
+        XCTAssertNotNil(UIImage.imageWithGradation(direction: .leftSlanted, start: .white, end: .black, name: imageName))
+        XCTAssertNotNil(UIImage.imageWithGradation(direction: .rightSlanted, start: .white, end: .black, name: imageName))
+    }
+
 }
