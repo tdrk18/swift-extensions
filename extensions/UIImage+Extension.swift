@@ -48,6 +48,31 @@ extension UIImage {
 
         return image
     }
+
+    static func image(name: String, tint: UIColor) -> UIImage? {
+        guard let image = UIImage(named: name) else { return nil }
+
+        UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
+        guard let context = UIGraphicsGetCurrentContext(),
+            let cgImage = image.cgImage else {
+                UIGraphicsEndImageContext()
+                return image
+        }
+
+        let rect = CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height)
+        context.translateBy(x: 0.0, y: image.size.height)
+        context.scaleBy(x: 1.0, y: -1.0)
+        context.setFillColor(tint.cgColor)
+        context.setBlendMode(.hue)
+        context.clip(to: rect, mask: cgImage)
+        context.addRect(rect)
+        context.drawPath(using: .fill)
+
+        let coloredImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return coloredImage
+    }
 }
 
 extension UIImage {
