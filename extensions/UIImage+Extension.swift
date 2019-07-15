@@ -48,6 +48,84 @@ extension UIImage {
 
         return image
     }
+
+    static func image(name: String, tint: UIColor) -> UIImage? {
+        guard let image = UIImage(named: name) else { return nil }
+
+        UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
+        guard let context = UIGraphicsGetCurrentContext(),
+            let cgImage = image.cgImage else {
+                UIGraphicsEndImageContext()
+                return image
+        }
+
+        let rect = CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height)
+        context.translateBy(x: 0.0, y: image.size.height)
+        context.scaleBy(x: 1.0, y: -1.0)
+        context.setFillColor(tint.cgColor)
+        context.setBlendMode(.hue)
+        context.clip(to: rect, mask: cgImage)
+        context.addRect(rect)
+        context.drawPath(using: .fill)
+
+        let coloredImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return coloredImage
+    }
+
+    static func imageWithGradation(direction: GradationDirection, start: UIColor, end: UIColor, name: String) -> UIImage? {
+        guard let image = UIImage(named: name) else { return nil }
+
+        UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
+        guard let context = UIGraphicsGetCurrentContext(),
+            let cgImage = image.cgImage else {
+                UIGraphicsEndImageContext()
+                return image
+        }
+
+        let rect = CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height)
+        context.translateBy(x: 0.0, y: image.size.height)
+        context.scaleBy(x: 1.0, y: -1.0)
+        context.setBlendMode(.hue)
+        context.clip(to: rect, mask: cgImage)
+
+        let cgColors = [end.cgColor, start.cgColor] as CFArray
+        let space = CGColorSpaceCreateDeviceRGB()
+        guard let gradient = CGGradient(colorsSpace: space, colors: cgColors, locations: nil) else {
+            UIGraphicsEndImageContext()
+            return image
+        }
+
+        let startPoint, endPoint: CGPoint
+        switch direction {
+        case .vertical:
+            startPoint = CGPoint(x: 0.0, y: 0.0)
+            endPoint = CGPoint(x: 0.0, y: image.size.height)
+        case .horizontal:
+            startPoint = CGPoint(x: image.size.width, y: 0.0)
+            endPoint = CGPoint(x: 0.0, y: 0.0)
+        case .leftSlanted:
+            startPoint = CGPoint(x: image.size.width, y: 0.0)
+            endPoint = CGPoint(x: 0.0, y: image.size.height)
+        case .rightSlanted:
+            startPoint = CGPoint(x: 0.0, y: 0.0)
+            endPoint = CGPoint(x: image.size.width, y: image.size.height)
+        }
+        context.drawLinearGradient(
+            gradient,
+            start: startPoint,
+            end: endPoint,
+            options: CGGradientDrawingOptions(rawValue: 0)
+        )
+        guard let gradientImage = UIGraphicsGetImageFromCurrentImageContext() else {
+            UIGraphicsEndImageContext()
+            return image
+        }
+        UIGraphicsEndImageContext()
+
+        return gradientImage
+    }
 }
 
 extension UIImage {
