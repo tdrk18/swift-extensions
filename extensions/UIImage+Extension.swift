@@ -30,17 +30,20 @@ extension UIImage {
         self.init(cgImage: cgImage)
     }
 
-    static func imageWithGradation(direction: GradationDirection,
-                                   start: UIColor,
-                                   end: UIColor,
-                                   size: CGSize) -> UIImage? {
+    convenience init(gradation direction: GradationDirection,
+                     start: UIColor,
+                     end: UIColor,
+                     size: CGSize) {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
 
         defer {
             UIGraphicsEndImageContext()
         }
 
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        guard let context = UIGraphicsGetCurrentContext() else {
+            self.init()
+            return
+        }
 
         let layer = CAGradientLayer()
         layer.frame = CGRect(origin: .zero, size: size)
@@ -49,7 +52,11 @@ extension UIImage {
         layer.endPoint = direction.endPoint
         layer.render(in: context)
 
-        return UIGraphicsGetImageFromCurrentImageContext()
+        guard let cgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
+            self.init()
+            return
+        }
+        self.init(cgImage: cgImage)
     }
 
     static func image(name: String, tint: UIColor) -> UIImage? {

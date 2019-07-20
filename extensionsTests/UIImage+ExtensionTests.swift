@@ -28,11 +28,11 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(UIImage(color: .green, size: size))
     }
 
-    func testImageWithGradation() {
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .vertical, start: .white, end: .black, size: size))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .horizontal, start: .white, end: .black, size: size))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .leftSlanted, start: .white, end: .black, size: size))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .rightSlanted, start: .white, end: .black, size: size))
+    func testInitWithGradation() {
+        XCTAssertNotNil(UIImage(gradation: .vertical, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(gradation: .horizontal, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(gradation: .leftSlanted, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(gradation: .rightSlanted, start: .white, end: .black, size: size))
     }
 
     func testImageWithNameAndTint() {
