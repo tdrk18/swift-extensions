@@ -12,17 +12,15 @@ extension UIImage {
     static func image(color: UIColor, size: CGSize) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
 
-        guard let context = UIGraphicsGetCurrentContext() else {
+        defer {
             UIGraphicsEndImageContext()
-            return nil
         }
+
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
         context.setFillColor(color.cgColor)
         context.fill(CGRect(origin: .zero, size: size))
 
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return image
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     static func imageWithGradation(direction: GradationDirection,
@@ -31,10 +29,11 @@ extension UIImage {
                                    size: CGSize) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
 
-        guard let context = UIGraphicsGetCurrentContext() else {
+        defer {
             UIGraphicsEndImageContext()
-            return nil
         }
+
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
 
         let layer = CAGradientLayer()
         layer.frame = CGRect(origin: .zero, size: size)
@@ -43,21 +42,20 @@ extension UIImage {
         layer.endPoint = direction.endPoint
         layer.render(in: context)
 
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return image
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     static func image(name: String, tint: UIColor) -> UIImage? {
         guard let image = UIImage(named: name) else { return nil }
 
         UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
-        guard let context = UIGraphicsGetCurrentContext(),
-            let cgImage = image.cgImage else {
-                UIGraphicsEndImageContext()
-                return image
+
+        defer {
+            UIGraphicsEndImageContext()
         }
+
+        guard let context = UIGraphicsGetCurrentContext(),
+            let cgImage = image.cgImage else { return image }
 
         let rect = CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height)
         context.translateBy(x: 0.0, y: image.size.height)
@@ -68,21 +66,20 @@ extension UIImage {
         context.addRect(rect)
         context.drawPath(using: .fill)
 
-        let coloredImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return coloredImage
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     static func imageWithGradation(direction: GradationDirection, start: UIColor, end: UIColor, name: String) -> UIImage? {
         guard let image = UIImage(named: name) else { return nil }
 
         UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
-        guard let context = UIGraphicsGetCurrentContext(),
-            let cgImage = image.cgImage else {
-                UIGraphicsEndImageContext()
-                return image
+
+        defer {
+            UIGraphicsEndImageContext()
         }
+
+        guard let context = UIGraphicsGetCurrentContext(),
+            let cgImage = image.cgImage else { return image }
 
         let rect = CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height)
         context.translateBy(x: 0.0, y: image.size.height)
@@ -92,10 +89,7 @@ extension UIImage {
 
         let cgColors = [end.cgColor, start.cgColor] as CFArray
         let space = CGColorSpaceCreateDeviceRGB()
-        guard let gradient = CGGradient(colorsSpace: space, colors: cgColors, locations: nil) else {
-            UIGraphicsEndImageContext()
-            return image
-        }
+        guard let gradient = CGGradient(colorsSpace: space, colors: cgColors, locations: nil) else { return image }
 
         let startPoint, endPoint: CGPoint
         switch direction {
@@ -118,11 +112,7 @@ extension UIImage {
             end: endPoint,
             options: CGGradientDrawingOptions(rawValue: 0)
         )
-        guard let gradientImage = UIGraphicsGetImageFromCurrentImageContext() else {
-            UIGraphicsEndImageContext()
-            return image
-        }
-        UIGraphicsEndImageContext()
+        guard let gradientImage = UIGraphicsGetImageFromCurrentImageContext() else { return image }
 
         return gradientImage
     }
