@@ -22,10 +22,10 @@ class UIImageExtensionTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testImageWithColor() {
-        XCTAssertNotNil(UIImage.image(color: .red, size: size))
-        XCTAssertNotNil(UIImage.image(color: .blue, size: size))
-        XCTAssertNotNil(UIImage.image(color: .green, size: size))
+    func testInitWithColor() {
+        XCTAssertNotNil(UIImage(color: .red, size: size))
+        XCTAssertNotNil(UIImage(color: .blue, size: size))
+        XCTAssertNotNil(UIImage(color: .green, size: size))
     }
 
     func testImageWithGradation() {

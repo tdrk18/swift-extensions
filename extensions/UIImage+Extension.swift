@@ -9,18 +9,25 @@
 import UIKit
 
 extension UIImage {
-    static func image(color: UIColor, size: CGSize) -> UIImage? {
+    convenience init(color: UIColor, size: CGSize) {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
 
         defer {
             UIGraphicsEndImageContext()
         }
 
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        guard let context = UIGraphicsGetCurrentContext() else {
+            self.init()
+            return
+        }
         context.setFillColor(color.cgColor)
         context.fill(CGRect(origin: .zero, size: size))
 
-        return UIGraphicsGetImageFromCurrentImageContext()
+        guard let cgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
+            self.init()
+            return
+        }
+        self.init(cgImage: cgImage)
     }
 
     static func imageWithGradation(direction: GradationDirection,
