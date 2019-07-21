@@ -45,12 +45,15 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNil(UIImage(named: notExistedImageName, tint: .black, size: size))
     }
 
-    func testImageWithNameAndGradation() {
+    func testInitWithNamedAndGradation() {
         let imageName = "light"
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .vertical, start: .white, end: .black, name: imageName))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .horizontal, start: .white, end: .black, name: imageName))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .leftSlanted, start: .white, end: .black, name: imageName))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .rightSlanted, start: .white, end: .black, name: imageName))
+        XCTAssertNotNil(UIImage(named: imageName, gradation: .vertical, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(named: imageName, gradation: .horizontal, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(named: imageName, gradation: .leftSlanted, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(named: imageName, gradation: .rightSlanted, start: .white, end: .black, size: size))
+
+        let notExistedImageName = "notExisted"
+        XCTAssertNil(UIImage(named: notExistedImageName, gradation: .rightSlanted, start: .white, end: .black, size: size))
     }
 
 }

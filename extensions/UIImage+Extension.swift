@@ -88,42 +88,50 @@ extension UIImage {
         self.init(cgImage: tintedCgImage)
     }
 
-    static func imageWithGradation(direction: GradationDirection, start: UIColor, end: UIColor, name: String) -> UIImage? {
-        guard let image = UIImage(named: name) else { return nil }
+    convenience init?(named: String,
+                      gradation direction: GradationDirection,
+                      start: UIColor,
+                      end: UIColor,
+                      size: CGSize) {
+        guard let image = UIImage(named: named) else { return nil }
 
-        UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
 
         defer {
             UIGraphicsEndImageContext()
         }
 
         guard let context = UIGraphicsGetCurrentContext(),
-            let cgImage = image.cgImage else { return image }
+              let cgImage = image.cgImage else {
+                return nil
+        }
 
-        let rect = CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height)
-        context.translateBy(x: 0.0, y: image.size.height)
+        let rect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
+        context.translateBy(x: 0.0, y: size.height)
         context.scaleBy(x: 1.0, y: -1.0)
         context.setBlendMode(.hue)
         context.clip(to: rect, mask: cgImage)
 
         let cgColors = [end.cgColor, start.cgColor] as CFArray
         let space = CGColorSpaceCreateDeviceRGB()
-        guard let gradient = CGGradient(colorsSpace: space, colors: cgColors, locations: nil) else { return image }
+        guard let gradient = CGGradient(colorsSpace: space, colors: cgColors, locations: nil) else {
+            return nil
+        }
 
         let startPoint, endPoint: CGPoint
         switch direction {
         case .vertical:
             startPoint = CGPoint(x: 0.0, y: 0.0)
-            endPoint = CGPoint(x: 0.0, y: image.size.height)
+            endPoint = CGPoint(x: 0.0, y: size.height)
         case .horizontal:
-            startPoint = CGPoint(x: image.size.width, y: 0.0)
+            startPoint = CGPoint(x: size.width, y: 0.0)
             endPoint = CGPoint(x: 0.0, y: 0.0)
         case .leftSlanted:
-            startPoint = CGPoint(x: image.size.width, y: 0.0)
-            endPoint = CGPoint(x: 0.0, y: image.size.height)
+            startPoint = CGPoint(x: size.width, y: 0.0)
+            endPoint = CGPoint(x: 0.0, y: size.height)
         case .rightSlanted:
             startPoint = CGPoint(x: 0.0, y: 0.0)
-            endPoint = CGPoint(x: image.size.width, y: image.size.height)
+            endPoint = CGPoint(x: size.width, y: size.height)
         }
         context.drawLinearGradient(
             gradient,
@@ -131,9 +139,10 @@ extension UIImage {
             end: endPoint,
             options: CGGradientDrawingOptions(rawValue: 0)
         )
-        guard let gradientImage = UIGraphicsGetImageFromCurrentImageContext() else { return image }
-
-        return gradientImage
+        guard let gradientCgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
+            return nil
+        }
+        self.init(cgImage: gradientCgImage)
     }
 }
 
