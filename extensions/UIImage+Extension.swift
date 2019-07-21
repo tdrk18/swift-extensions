@@ -139,6 +139,7 @@ extension UIImage {
             end: endPoint,
             options: CGGradientDrawingOptions(rawValue: 0)
         )
+
         guard let gradientCgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
             return nil
         }
