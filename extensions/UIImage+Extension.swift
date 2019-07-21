@@ -59,20 +59,22 @@ extension UIImage {
         self.init(cgImage: cgImage)
     }
 
-    static func image(name: String, tint: UIColor) -> UIImage? {
-        guard let image = UIImage(named: name) else { return nil }
+    convenience init?(named: String, tint: UIColor, size: CGSize) {
+        guard let image = UIImage(named: named) else {
+            return nil
+        }
 
-        UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
 
         defer {
             UIGraphicsEndImageContext()
         }
 
         guard let context = UIGraphicsGetCurrentContext(),
-            let cgImage = image.cgImage else { return image }
+            let cgImage = image.cgImage else { return nil }
 
-        let rect = CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height)
-        context.translateBy(x: 0.0, y: image.size.height)
+        let rect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
+        context.translateBy(x: 0.0, y: size.height)
         context.scaleBy(x: 1.0, y: -1.0)
         context.setFillColor(tint.cgColor)
         context.setBlendMode(.hue)
@@ -80,7 +82,10 @@ extension UIImage {
         context.addRect(rect)
         context.drawPath(using: .fill)
 
-        return UIGraphicsGetImageFromCurrentImageContext()
+        guard let tintedCgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
+            return nil
+        }
+        self.init(cgImage: tintedCgImage)
     }
 
     static func imageWithGradation(direction: GradationDirection, start: UIColor, end: UIColor, name: String) -> UIImage? {

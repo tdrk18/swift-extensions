@@ -35,11 +35,14 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(UIImage(gradation: .rightSlanted, start: .white, end: .black, size: size))
     }
 
-    func testImageWithNameAndTint() {
+    func testInitWithNamedAndTint() {
         let imageName = "light"
-        XCTAssertNotNil(UIImage.image(name: imageName, tint: .red))
-        XCTAssertNotNil(UIImage.image(name: imageName, tint: .green))
-        XCTAssertNotNil(UIImage.image(name: imageName, tint: .blue))
+        XCTAssertNotNil(UIImage(named: imageName, tint: .red, size: size))
+        XCTAssertNotNil(UIImage(named: imageName, tint: .green, size: size))
+        XCTAssertNotNil(UIImage(named: imageName, tint: .blue, size: size))
+
+        let notExistedImageName = "notExisted"
+        XCTAssertNil(UIImage(named: notExistedImageName, tint: .black, size: size))
     }
 
     func testImageWithNameAndGradation() {
