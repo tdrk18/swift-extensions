@@ -27,7 +27,7 @@ extension UIImage {
             self.init()
             return
         }
-        self.init(cgImage: cgImage)
+        self.init(cgImage: cgImage, scale: UIScreen.main.scale, orientation: .up)
     }
 
     convenience init(gradation direction: GradationDirection,
@@ -56,7 +56,7 @@ extension UIImage {
             self.init()
             return
         }
-        self.init(cgImage: cgImage)
+        self.init(cgImage: cgImage, scale: UIScreen.main.scale, orientation: .up)
     }
 
     convenience init?(named: String, tint: UIColor, size: CGSize) {
@@ -85,7 +85,7 @@ extension UIImage {
         guard let tintedCgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
             return nil
         }
-        self.init(cgImage: tintedCgImage)
+        self.init(cgImage: tintedCgImage, scale: UIScreen.main.scale, orientation: .up)
     }
 
     convenience init?(named: String,
@@ -142,7 +142,7 @@ extension UIImage {
         guard let gradientCgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
             return nil
         }
-        self.init(cgImage: gradientCgImage)
+        self.init(cgImage: gradientCgImage, scale: UIScreen.main.scale, orientation: .up)
     }
 }
 

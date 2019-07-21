@@ -26,6 +26,8 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(UIImage(color: .red, size: size))
         XCTAssertNotNil(UIImage(color: .blue, size: size))
         XCTAssertNotNil(UIImage(color: .green, size: size))
+
+        XCTAssertEqual(UIImage(color: .red, size: size).size, size)
     }
 
     func testInitWithGradation() {
@@ -33,6 +35,8 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(UIImage(gradation: .horizontal, start: .white, end: .black, size: size))
         XCTAssertNotNil(UIImage(gradation: .leftSlanted, start: .white, end: .black, size: size))
         XCTAssertNotNil(UIImage(gradation: .rightSlanted, start: .white, end: .black, size: size))
+
+        XCTAssertEqual(UIImage(gradation: .vertical, start: .white, end: .black, size: size).size, size)
     }
 
     func testInitWithNamedAndTint() {
@@ -40,6 +44,8 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(UIImage(named: imageName, tint: .red, size: size))
         XCTAssertNotNil(UIImage(named: imageName, tint: .green, size: size))
         XCTAssertNotNil(UIImage(named: imageName, tint: .blue, size: size))
+
+        XCTAssertEqual(UIImage(named: imageName, tint: .red, size: size)?.size, size)
 
         let notExistedImageName = "notExisted"
         XCTAssertNil(UIImage(named: notExistedImageName, tint: .black, size: size))
@@ -51,6 +57,8 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(UIImage(named: imageName, gradation: .horizontal, start: .white, end: .black, size: size))
         XCTAssertNotNil(UIImage(named: imageName, gradation: .leftSlanted, start: .white, end: .black, size: size))
         XCTAssertNotNil(UIImage(named: imageName, gradation: .rightSlanted, start: .white, end: .black, size: size))
+
+        XCTAssertEqual(UIImage(named: imageName, gradation: .vertical, start: .white, end: .black, size: size)?.size, size)
 
         let notExistedImageName = "notExisted"
         XCTAssertNil(UIImage(named: notExistedImageName, gradation: .rightSlanted, start: .white, end: .black, size: size))
