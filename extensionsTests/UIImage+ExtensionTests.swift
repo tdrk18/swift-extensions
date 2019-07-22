@@ -93,4 +93,15 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(scaledHeightImage)
         XCTAssertEqual(scaledHeightImage?.size, newSize)
     }
+
+    func testRotateWithRadians() {
+        let image = UIImage(color: .red, size: size)
+        let rotatedImage1 = image.rotated(by: .pi)
+        XCTAssertNotNil(rotatedImage1)
+        XCTAssertEqual(rotatedImage1?.size, size)
+
+        let rotatedImage2 = image.rotated(by: .pi / 2.0)
+        XCTAssertNotNil(rotatedImage2)
+        XCTAssertEqual(rotatedImage2?.size, CGSize(width: size.height, height: size.width))
+    }
 }

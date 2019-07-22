@@ -209,6 +209,34 @@ extension UIImage {
 
         return scaledImage
     }
+
+    func rotated(by radians: CGFloat) -> UIImage? {
+        let destRect = CGRect(origin: .zero, size: size).applying(CGAffineTransform(rotationAngle: radians))
+        let roundedDestRect = CGRect(
+            x: destRect.origin.x.rounded(),
+            y: destRect.origin.y.rounded(),
+            width: destRect.width.rounded(),
+            height: destRect.height.rounded()
+        )
+
+        UIGraphicsBeginImageContext(roundedDestRect.size)
+
+        guard let context = UIGraphicsGetCurrentContext() else {
+            UIGraphicsEndImageContext()
+            return nil
+        }
+        context.translateBy(x: roundedDestRect.width / 2.0, y: roundedDestRect.height / 2.0)
+        context.rotate(by: radians)
+
+        let rect = CGRect(x: -size.width / 2.0, y: -size.height / 2.0, width: size.width, height: size.height)
+        draw(in: rect)
+
+        let rotatedImage = UIGraphicsGetImageFromCurrentImageContext()
+
+        UIGraphicsEndImageContext()
+
+        return rotatedImage
+    }
 }
 
 extension UIImage {
