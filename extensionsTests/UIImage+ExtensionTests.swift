@@ -64,4 +64,11 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNil(UIImage(named: notExistedImageName, gradation: .rightSlanted, start: .white, end: .black, size: size))
     }
 
+    func testWithCornerRadius() {
+        let image = UIImage(color: .red, size: size)
+        XCTAssertNotNil(image.withCorner())
+        XCTAssertNotNil(image.withCorner(radius: 2.0))
+        XCTAssertNotNil(image.withCorner(radius: 10.0))
+        XCTAssertNotNil(image.withCorner(radius: -2.0))
+    }
 }
