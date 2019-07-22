@@ -167,6 +167,22 @@ extension UIImage {
 
         return image
     }
+
+    func scaled(by scale: CGFloat) -> UIImage? {
+        let newWidth = size.width * scale
+        let newHeight = size.height * scale
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: newWidth, height: newHeight), false, 0.0)
+
+        let rect = CGRect(origin: .zero, size: CGSize(width: newWidth, height: newHeight))
+        draw(in: rect)
+
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+
+        UIGraphicsEndImageContext()
+
+        return scaledImage
+    }
 }
 
 extension UIImage {

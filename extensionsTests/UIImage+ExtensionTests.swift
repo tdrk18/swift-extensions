@@ -71,4 +71,13 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(image.withCorner(radius: 10.0))
         XCTAssertNotNil(image.withCorner(radius: -2.0))
     }
+
+    func testWithScaled() {
+        let scale: CGFloat = 2.0
+        let image = UIImage(color: .red, size: size)
+        let scaledImage = image.scaled(by: scale)
+        let newSize = CGSize(width: size.width * scale, height: size.height * scale)
+        XCTAssertNotNil(scaledImage)
+        XCTAssertEqual(scaledImage?.size, newSize)
+    }
 }
