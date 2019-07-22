@@ -22,32 +22,46 @@ class UIImageExtensionTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testImageWithColor() {
-        XCTAssertNotNil(UIImage.image(color: .red, size: size))
-        XCTAssertNotNil(UIImage.image(color: .blue, size: size))
-        XCTAssertNotNil(UIImage.image(color: .green, size: size))
+    func testInitWithColor() {
+        XCTAssertNotNil(UIImage(color: .red, size: size))
+        XCTAssertNotNil(UIImage(color: .blue, size: size))
+        XCTAssertNotNil(UIImage(color: .green, size: size))
+
+        XCTAssertEqual(UIImage(color: .red, size: size).size, size)
     }
 
-    func testImageWithGradation() {
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .vertical, start: .white, end: .black, size: size))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .horizontal, start: .white, end: .black, size: size))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .leftSlanted, start: .white, end: .black, size: size))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .rightSlanted, start: .white, end: .black, size: size))
+    func testInitWithGradation() {
+        XCTAssertNotNil(UIImage(gradation: .vertical, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(gradation: .horizontal, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(gradation: .leftSlanted, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(gradation: .rightSlanted, start: .white, end: .black, size: size))
+
+        XCTAssertEqual(UIImage(gradation: .vertical, start: .white, end: .black, size: size).size, size)
     }
 
-    func testImageWithNameAndTint() {
+    func testInitWithNamedAndTint() {
         let imageName = "light"
-        XCTAssertNotNil(UIImage.image(name: imageName, tint: .red))
-        XCTAssertNotNil(UIImage.image(name: imageName, tint: .green))
-        XCTAssertNotNil(UIImage.image(name: imageName, tint: .blue))
+        XCTAssertNotNil(UIImage(named: imageName, tint: .red, size: size))
+        XCTAssertNotNil(UIImage(named: imageName, tint: .green, size: size))
+        XCTAssertNotNil(UIImage(named: imageName, tint: .blue, size: size))
+
+        XCTAssertEqual(UIImage(named: imageName, tint: .red, size: size)?.size, size)
+
+        let notExistedImageName = "notExisted"
+        XCTAssertNil(UIImage(named: notExistedImageName, tint: .black, size: size))
     }
 
-    func testImageWithNameAndGradation() {
+    func testInitWithNamedAndGradation() {
         let imageName = "light"
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .vertical, start: .white, end: .black, name: imageName))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .horizontal, start: .white, end: .black, name: imageName))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .leftSlanted, start: .white, end: .black, name: imageName))
-        XCTAssertNotNil(UIImage.imageWithGradation(direction: .rightSlanted, start: .white, end: .black, name: imageName))
+        XCTAssertNotNil(UIImage(named: imageName, gradation: .vertical, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(named: imageName, gradation: .horizontal, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(named: imageName, gradation: .leftSlanted, start: .white, end: .black, size: size))
+        XCTAssertNotNil(UIImage(named: imageName, gradation: .rightSlanted, start: .white, end: .black, size: size))
+
+        XCTAssertEqual(UIImage(named: imageName, gradation: .vertical, start: .white, end: .black, size: size)?.size, size)
+
+        let notExistedImageName = "notExisted"
+        XCTAssertNil(UIImage(named: notExistedImageName, gradation: .rightSlanted, start: .white, end: .black, size: size))
     }
 
 }
