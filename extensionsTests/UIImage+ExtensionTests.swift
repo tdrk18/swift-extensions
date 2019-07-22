@@ -12,7 +12,7 @@ import XCTest
 
 class UIImageExtensionTests: XCTestCase {
 
-    private let size = CGSize(width: 10.0, height: 10.0)
+    private let size = CGSize(width: 10.0, height: 20.0)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
