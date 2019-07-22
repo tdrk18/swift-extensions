@@ -80,4 +80,17 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNotNil(scaledImage)
         XCTAssertEqual(scaledImage?.size, newSize)
     }
+
+    func testWithScaledBySide() {
+        let scale: CGFloat = 2.0
+        let image = UIImage(color: .red, size: size)
+        let newSize = CGSize(width: size.width * scale, height: size.height * scale)
+        let scaledWidthImage = image.scaled(side: .width, to: size.width * scale)
+        XCTAssertNotNil(scaledWidthImage)
+        XCTAssertEqual(scaledWidthImage?.size, newSize)
+
+        let scaledHeightImage = image.scaled(side: .height, to: size.height * scale)
+        XCTAssertNotNil(scaledHeightImage)
+        XCTAssertEqual(scaledHeightImage?.size, newSize)
+    }
 }

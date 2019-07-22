@@ -183,6 +183,32 @@ extension UIImage {
 
         return scaledImage
     }
+
+    func scaled(side: Side, to value: CGFloat) -> UIImage? {
+        let scale: CGFloat
+        let newWidth, newHeight: CGFloat
+        switch side {
+        case .width:
+            scale = value / size.width
+            newWidth = value
+            newHeight = size.height * scale
+        case .height:
+            scale = value / size.height
+            newWidth = size.width * scale
+            newHeight = value
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: newWidth, height: newHeight), false, 0.0)
+
+        let rect = CGRect(origin: .zero, size: CGSize(width: newWidth, height: newHeight))
+        draw(in: rect)
+
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+
+        UIGraphicsEndImageContext()
+
+        return scaledImage
+    }
 }
 
 extension UIImage {
@@ -217,5 +243,10 @@ extension UIImage {
                 return CGPoint(x: 0.0, y: 1.0)
             }
         }
+    }
+
+    enum Side {
+        case width
+        case height
     }
 }
