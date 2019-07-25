@@ -12,7 +12,7 @@ import XCTest
 
 class UIImageExtensionTests: XCTestCase {
 
-    private let size = CGSize(width: 10.0, height: 10.0)
+    private let size = CGSize(width: 10.0, height: 20.0)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -64,4 +64,55 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNil(UIImage(named: notExistedImageName, gradation: .rightSlanted, start: .white, end: .black, size: size))
     }
 
+    func testWithCornerRadius() {
+        let image = UIImage(color: .red, size: size)
+        XCTAssertNotNil(image.withCorner())
+        XCTAssertNotNil(image.withCorner(radius: 2.0))
+        XCTAssertNotNil(image.withCorner(radius: 10.0))
+        XCTAssertNotNil(image.withCorner(radius: -2.0))
+    }
+
+    func testWithScaled() {
+        let scale: CGFloat = 2.0
+        let image = UIImage(color: .red, size: size)
+        let scaledImage = image.scaled(by: scale)
+        let newSize = CGSize(width: size.width * scale, height: size.height * scale)
+        XCTAssertNotNil(scaledImage)
+        XCTAssertEqual(scaledImage?.size, newSize)
+    }
+
+    func testWithScaledBySide() {
+        let scale: CGFloat = 2.0
+        let image = UIImage(color: .red, size: size)
+        let newSize = CGSize(width: size.width * scale, height: size.height * scale)
+        let scaledWidthImage = image.scaled(side: .width, to: size.width * scale)
+        XCTAssertNotNil(scaledWidthImage)
+        XCTAssertEqual(scaledWidthImage?.size, newSize)
+
+        let scaledHeightImage = image.scaled(side: .height, to: size.height * scale)
+        XCTAssertNotNil(scaledHeightImage)
+        XCTAssertEqual(scaledHeightImage?.size, newSize)
+    }
+
+    func testRotateWithRadians() {
+        let image = UIImage(color: .red, size: size)
+        let rotatedImage1 = image.rotated(by: .pi)
+        XCTAssertNotNil(rotatedImage1)
+        XCTAssertEqual(rotatedImage1?.size, size)
+
+        let rotatedImage2 = image.rotated(by: .pi / 2.0)
+        XCTAssertNotNil(rotatedImage2)
+        XCTAssertEqual(rotatedImage2?.size, CGSize(width: size.height, height: size.width))
+    }
+
+    func testRotateWithAngle() {
+        let image = UIImage(color: .red, size: size)
+        let rotatedImage1 = image.rotated(by: Measurement(value: 180, unit: .degrees))
+        XCTAssertNotNil(rotatedImage1)
+        XCTAssertEqual(rotatedImage1?.size, size)
+
+        let rotatedImage2 = image.rotated(by: Measurement(value: 90, unit: .degrees))
+        XCTAssertNotNil(rotatedImage2)
+        XCTAssertEqual(rotatedImage2?.size, CGSize(width: size.height, height: size.width))
+    }
 }

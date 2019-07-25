@@ -145,6 +145,104 @@ extension UIImage {
         }
         self.init(cgImage: gradientCgImage, scale: UIScreen.main.scale, orientation: .up)
     }
+
+    func withCorner(radius: CGFloat? = nil) -> UIImage? {
+        let maxRadius: CGFloat = min(size.width, size.height) / 2.0
+        let cornerRadius: CGFloat
+        if let radius = radius, radius >= 0, radius <= maxRadius {
+            cornerRadius = radius
+        } else {
+            cornerRadius = maxRadius
+        }
+
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+
+        let rect = CGRect(origin: .zero, size: size)
+        UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
+        draw(in: rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
+    func scaled(by scale: CGFloat) -> UIImage? {
+        let newWidth = size.width * scale
+        let newHeight = size.height * scale
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: newWidth, height: newHeight), false, 0.0)
+
+        let rect = CGRect(origin: .zero, size: CGSize(width: newWidth, height: newHeight))
+        draw(in: rect)
+
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+
+        UIGraphicsEndImageContext()
+
+        return scaledImage
+    }
+
+    func scaled(side: Side, to value: CGFloat) -> UIImage? {
+        let scale: CGFloat
+        let newWidth, newHeight: CGFloat
+        switch side {
+        case .width:
+            scale = value / size.width
+            newWidth = value
+            newHeight = size.height * scale
+        case .height:
+            scale = value / size.height
+            newWidth = size.width * scale
+            newHeight = value
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: newWidth, height: newHeight), false, 0.0)
+
+        let rect = CGRect(origin: .zero, size: CGSize(width: newWidth, height: newHeight))
+        draw(in: rect)
+
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+
+        UIGraphicsEndImageContext()
+
+        return scaledImage
+    }
+
+    func rotated(by radians: CGFloat) -> UIImage? {
+        let destRect = CGRect(origin: .zero, size: size).applying(CGAffineTransform(rotationAngle: radians))
+        let roundedDestRect = CGRect(
+            x: destRect.origin.x.rounded(),
+            y: destRect.origin.y.rounded(),
+            width: destRect.width.rounded(),
+            height: destRect.height.rounded()
+        )
+
+        UIGraphicsBeginImageContext(roundedDestRect.size)
+
+        guard let context = UIGraphicsGetCurrentContext() else {
+            UIGraphicsEndImageContext()
+            return nil
+        }
+        context.translateBy(x: roundedDestRect.width / 2.0, y: roundedDestRect.height / 2.0)
+        context.rotate(by: radians)
+
+        let rect = CGRect(x: -size.width / 2.0, y: -size.height / 2.0, width: size.width, height: size.height)
+        draw(in: rect)
+
+        let rotatedImage = UIGraphicsGetImageFromCurrentImageContext()
+
+        UIGraphicsEndImageContext()
+
+        return rotatedImage
+    }
+
+    func rotated(by angle: Measurement<UnitAngle>) -> UIImage? {
+        let radians = CGFloat(angle.converted(to: .radians).value)
+
+        return rotated(by: radians)
+    }
 }
 
 extension UIImage {
@@ -179,5 +277,10 @@ extension UIImage {
                 return CGPoint(x: 0.0, y: 1.0)
             }
         }
+    }
+
+    enum Side {
+        case width
+        case height
     }
 }
