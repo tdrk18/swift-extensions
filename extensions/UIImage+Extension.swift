@@ -237,6 +237,12 @@ extension UIImage {
 
         return rotatedImage
     }
+
+    func rotated(by angle: Measurement<UnitAngle>) -> UIImage? {
+        let radians = CGFloat(angle.converted(to: .radians).value)
+
+        return rotated(by: radians)
+    }
 }
 
 extension UIImage {
