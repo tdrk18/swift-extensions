@@ -145,7 +145,9 @@ extension UIImage {
         }
         self.init(cgImage: gradientCgImage, scale: UIScreen.main.scale, orientation: .up)
     }
+}
 
+extension UIImage {
     func withCorner(radius: CGFloat? = nil) -> UIImage? {
         let maxRadius: CGFloat = min(size.width, size.height) / 2.0
         let cornerRadius: CGFloat
