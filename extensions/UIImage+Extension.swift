@@ -145,7 +145,22 @@ extension UIImage {
         }
         self.init(cgImage: gradientCgImage, scale: UIScreen.main.scale, orientation: .up)
     }
+}
 
+extension UIImage {
+    static func qrCode(text: String) -> UIImage? {
+        guard let data = text.data(using: .utf8) else { return nil }
+
+        let sizeTransform = CGAffineTransform(scaleX: 10, y: 10)
+        guard let qrFilter = CIFilter(name: "CIQRCodeGenerator", parameters: ["inputMessage": data, "inputCorrectionLevel": "M"]),
+              let qrImage = qrFilter.outputImage?.transformed(by: sizeTransform),
+              let cgImage = CIContext().createCGImage(qrImage, from: qrImage.extent) else { return nil }
+
+        return UIImage(cgImage: cgImage)
+    }
+}
+
+extension UIImage {
     func withCorner(radius: CGFloat? = nil) -> UIImage? {
         let maxRadius: CGFloat = min(size.width, size.height) / 2.0
         let cornerRadius: CGFloat
