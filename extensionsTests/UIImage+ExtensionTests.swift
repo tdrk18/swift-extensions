@@ -64,6 +64,12 @@ class UIImageExtensionTests: XCTestCase {
         XCTAssertNil(UIImage(named: notExistedImageName, gradation: .rightSlanted, start: .white, end: .black, size: size))
     }
 
+    func testQRCode() {
+        XCTAssertNotNil(UIImage.qrCode(text: "https://google.com"))
+        XCTAssertNotNil(UIImage.qrCode(text: "https://yahoo.co.jp"))
+        XCTAssertNotNil(UIImage.qrCode(text: "some text"))
+    }
+
     func testWithCornerRadius() {
         let image = UIImage(color: .red, size: size)
         XCTAssertNotNil(image.withCorner())
