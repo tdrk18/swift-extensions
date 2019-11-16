@@ -1,9 +1,9 @@
-name: Unit test
+name: UnitTest
 
 on: [push]
 
 jobs:
-  build:
+  UnitTest:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v1
