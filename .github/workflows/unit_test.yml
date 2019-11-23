@@ -8,6 +8,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Select Xcode version
-      run: sudo xcode-select -s '/Applications/Xcode_11.app/Contents/Developer'
+      run: sudo xcode-select -s '/Applications/Xcode_11.2.app/Contents/Developer'
     - name: Run unit tests
-      run: xcodebuild -scheme extensions -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.0,name=iPhone 11' -configuration Debug test
+      run: xcodebuild -scheme extensions -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.2,name=iPhone 11' -configuration Debug test
