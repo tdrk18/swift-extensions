@@ -4,7 +4,7 @@ matrix:
   - osx_image: xcode11.2
 script:
 - swiftlint lint --strict
-- xcodebuild -scheme extensions -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.2,name=iPhone 11' -configuration Debug test | bundle exec xcpretty -c && exit ${PIPESTATUS[0]}
+- xcodebuild -scheme extensions -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=13.2.2,name=iPhone 11' -configuration Debug test | bundle exec xcpretty -c && exit ${PIPESTATUS[0]}
 notifications:
   slack:
     secure: PZbT3xmHBnAYwUblsgFEvkf+Mkaie+SHisL6/u8rrGfdQW7CEgdEKRYNaRSYdsN9TBsT6E/V0pQaHnMfrqTkCt+TTNzdEGUgg70U3sCbJ0xwI3TFIjr/utfSJdN7RKQ9EhAa8oZ2W3DOy6FcRR9hedU0BNhKr0HkA1Sf8fQHd//yfA3Ws2ZTmr3Y+i2Dz5WI75jI8sfHMPJ/R7tjHHnbJ9b2vd8vJlnxLtmkJr8aTBk1HTbOvjTRyAN62lbbWwtZd2SQxn9RGbmjRPoRbtIycDmpS3SaNwyxbDIYVXQsCFQbo5Xga0PAzDZvWE3ERHW2kVGFCI4fXxNjSn700NlE5oMWMQUMS6pgOA+Dwt5Xdg0Xq/kjog+vyBxt0cUfIE7BaGEG95U7nI0o7od4TcxlWecQ6K3Hi0O/Dmtp0X9duZylYZ1kebpdM4a/2hZ4havvb5eU/eaTNUJ6U+B89kKmcc8+XYZFRWy9kc5SgykJOffCgIwtIoElS1WYYiDYjfQV1iuh7OmVIt3n+EcGpcrnw2cL12Ytv3gqdQKIx6AUyynODgOH1rAqdve2huksTVhXe7tCnrjkViVPcN5nXJiCPciGpusG/kL0hiYyqpbYL1jmNNHQpwng3CCG0Fa0lDZqaI9sU21rO/9b+5GUIJ9w0RU59PoGbWoUo2zZaSzvgDM=
