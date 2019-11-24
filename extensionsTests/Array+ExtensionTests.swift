@@ -19,6 +19,11 @@ class ArrayExtensionTests: XCTestCase {
         super.tearDown()
     }
 
+    func testIsNotEmpty() {
+        XCTAssertTrue([1, 2, 3].isNotEmpty)
+        XCTAssertFalse([].isNotEmpty)
+    }
+
     func testSortAsc() {
         var array, expectedArray: [Int]
 
