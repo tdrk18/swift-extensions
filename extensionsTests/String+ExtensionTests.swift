@@ -20,6 +20,11 @@ class StringExtensionTests: XCTestCase {
         super.tearDown()
     }
 
+    func testIsNotEmpty() {
+        XCTAssertTrue("hogehoge".isNotEmpty)
+        XCTAssertFalse("".isNotEmpty)
+    }
+
     func testTrimmedWhiteSpace() {
         var string, expectedString: String
 

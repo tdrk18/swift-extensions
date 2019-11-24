@@ -5,6 +5,12 @@
 
 import Foundation
 
+public extension Array {
+    var isNotEmpty: Bool {
+        !isEmpty
+    }
+}
+
 public extension Array where Element == Int {
 
     func sortAsc() -> Array {

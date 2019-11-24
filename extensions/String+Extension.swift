@@ -10,6 +10,10 @@ import Foundation
 
 public extension String {
 
+    var isNotEmpty: Bool {
+        !isEmpty
+    }
+
     func trimmedWhiteSpace() -> String {
         return self.trimmingCharacters(in: .whitespaces)
     }
